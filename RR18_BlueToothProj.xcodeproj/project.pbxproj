@@ -12,6 +12,7 @@
 		BAAA38102169586D00E2CC95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAAA380E2169586D00E2CC95 /* Main.storyboard */; };
 		BAAA38122169586D00E2CC95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAAA38112169586D00E2CC95 /* Assets.xcassets */; };
 		BAAA38152169586D00E2CC95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAAA38132169586D00E2CC95 /* LaunchScreen.storyboard */; };
+		BAAA381F2169645C00E2CC95 /* RRManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAA381E2169645C00E2CC95 /* RRManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		BAAA38112169586D00E2CC95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAAA38142169586D00E2CC95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BAAA38162169586D00E2CC95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAAA381E2169645C00E2CC95 /* RRManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +58,21 @@
 			children = (
 				BAAA380A2169586D00E2CC95 /* AppDelegate.swift */,
 				BAAA380C2169586D00E2CC95 /* ViewController.swift */,
+				BAAA38202169646D00E2CC95 /* Managers */,
 				BAAA380E2169586D00E2CC95 /* Main.storyboard */,
 				BAAA38112169586D00E2CC95 /* Assets.xcassets */,
 				BAAA38132169586D00E2CC95 /* LaunchScreen.storyboard */,
 				BAAA38162169586D00E2CC95 /* Info.plist */,
 			);
 			path = RR18_BlueToothProj;
+			sourceTree = "<group>";
+		};
+		BAAA38202169646D00E2CC95 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				BAAA381E2169645C00E2CC95 /* RRManager.swift */,
+			);
+			name = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +149,7 @@
 			files = (
 				BAAA380D2169586D00E2CC95 /* ViewController.swift in Sources */,
 				BAAA380B2169586D00E2CC95 /* AppDelegate.swift in Sources */,
+				BAAA381F2169645C00E2CC95 /* RRManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +313,7 @@
 				BAAA381B2169586D00E2CC95 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
