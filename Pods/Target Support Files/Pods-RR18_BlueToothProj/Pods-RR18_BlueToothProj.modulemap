@@ -1,0 +1,6 @@
+framework module Pods_RR18_BlueToothProj {
+  umbrella header "Pods-RR18_BlueToothProj-umbrella.h"
+
+  export *
+  module * { export * }
+}
