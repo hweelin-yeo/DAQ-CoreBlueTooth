@@ -7,15 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F37FE51CD6A8C8A39157506 /* Pods_RR18_BlueToothProj.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E158C39C6F3BAF6A8B0E6A2F /* Pods_RR18_BlueToothProj.framework */; };
 		BAAA380B2169586D00E2CC95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAA380A2169586D00E2CC95 /* AppDelegate.swift */; };
 		BAAA380D2169586D00E2CC95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAA380C2169586D00E2CC95 /* ViewController.swift */; };
 		BAAA38102169586D00E2CC95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAAA380E2169586D00E2CC95 /* Main.storyboard */; };
 		BAAA38122169586D00E2CC95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAAA38112169586D00E2CC95 /* Assets.xcassets */; };
 		BAAA38152169586D00E2CC95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAAA38132169586D00E2CC95 /* LaunchScreen.storyboard */; };
-		BAAA381F2169645C00E2CC95 /* RRManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAA381E2169645C00E2CC95 /* RRManager.swift */; };
+		BAAA381F2169645C00E2CC95 /* RRCentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAA381E2169645C00E2CC95 /* RRCentralManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		243C13C5DC9DF4A73CC4FB9A /* Pods-RR18_BlueToothProj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RR18_BlueToothProj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RR18_BlueToothProj/Pods-RR18_BlueToothProj.debug.xcconfig"; sourceTree = "<group>"; };
 		BAAA38072169586D00E2CC95 /* RR18_BlueToothProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RR18_BlueToothProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAAA380A2169586D00E2CC95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAAA380C2169586D00E2CC95 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -23,7 +25,9 @@
 		BAAA38112169586D00E2CC95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAAA38142169586D00E2CC95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BAAA38162169586D00E2CC95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BAAA381E2169645C00E2CC95 /* RRManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRManager.swift; sourceTree = "<group>"; };
+		BAAA381E2169645C00E2CC95 /* RRCentralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRCentralManager.swift; sourceTree = "<group>"; };
+		D2A4FAE92B9B2C75B071F35D /* Pods-RR18_BlueToothProj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RR18_BlueToothProj.release.xcconfig"; path = "Pods/Target Support Files/Pods-RR18_BlueToothProj/Pods-RR18_BlueToothProj.release.xcconfig"; sourceTree = "<group>"; };
+		E158C39C6F3BAF6A8B0E6A2F /* Pods_RR18_BlueToothProj.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RR18_BlueToothProj.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F37FE51CD6A8C8A39157506 /* Pods_RR18_BlueToothProj.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B66D61ED49B00E38A340262 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				243C13C5DC9DF4A73CC4FB9A /* Pods-RR18_BlueToothProj.debug.xcconfig */,
+				D2A4FAE92B9B2C75B071F35D /* Pods-RR18_BlueToothProj.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		264A459A684C5FDF8725B33E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E158C39C6F3BAF6A8B0E6A2F /* Pods_RR18_BlueToothProj.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BAAA37FE2169586D00E2CC95 = {
 			isa = PBXGroup;
 			children = (
 				BAAA38092169586D00E2CC95 /* RR18_BlueToothProj */,
 				BAAA38082169586D00E2CC95 /* Products */,
+				1B66D61ED49B00E38A340262 /* Pods */,
+				264A459A684C5FDF8725B33E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,7 +94,7 @@
 		BAAA38202169646D00E2CC95 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				BAAA381E2169645C00E2CC95 /* RRManager.swift */,
+				BAAA381E2169645C00E2CC95 /* RRCentralManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -82,9 +106,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BAAA38192169586D00E2CC95 /* Build configuration list for PBXNativeTarget "RR18_BlueToothProj" */;
 			buildPhases = (
+				EB4E6B8C994598047CBFA416 /* [CP] Check Pods Manifest.lock */,
 				BAAA38032169586D00E2CC95 /* Sources */,
 				BAAA38042169586D00E2CC95 /* Frameworks */,
 				BAAA38052169586D00E2CC95 /* Resources */,
+				27E8D3A04D525DCF76B7FBBC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -107,6 +133,7 @@
 				TargetAttributes = {
 					BAAA38062169586D00E2CC95 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = Q8VHLMFG35;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -142,6 +169,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		27E8D3A04D525DCF76B7FBBC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RR18_BlueToothProj/Pods-RR18_BlueToothProj-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RR18_BlueToothProj/Pods-RR18_BlueToothProj-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB4E6B8C994598047CBFA416 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RR18_BlueToothProj-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BAAA38032169586D00E2CC95 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -149,7 +223,7 @@
 			files = (
 				BAAA380D2169586D00E2CC95 /* ViewController.swift in Sources */,
 				BAAA380B2169586D00E2CC95 /* AppDelegate.swift in Sources */,
-				BAAA381F2169645C00E2CC95 /* RRManager.swift in Sources */,
+				BAAA381F2169645C00E2CC95 /* RRCentralManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,8 +346,10 @@
 		};
 		BAAA381A2169586D00E2CC95 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 243C13C5DC9DF4A73CC4FB9A /* Pods-RR18_BlueToothProj.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Q8VHLMFG35;
 				INFOPLIST_FILE = RR18_BlueToothProj/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "hweelin-yeo.RR18-BlueToothProj";
@@ -284,8 +360,10 @@
 		};
 		BAAA381B2169586D00E2CC95 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2A4FAE92B9B2C75B071F35D /* Pods-RR18_BlueToothProj.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Q8VHLMFG35;
 				INFOPLIST_FILE = RR18_BlueToothProj/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "hweelin-yeo.RR18-BlueToothProj";

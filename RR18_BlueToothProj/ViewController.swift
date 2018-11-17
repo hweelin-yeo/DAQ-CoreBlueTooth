@@ -7,24 +7,28 @@
 //
 
 import UIKit
+import SCLAlertView
 import CoreBluetooth
 
 class ViewController: UIViewController {
     
     // MARK: UI
+    
+    @IBOutlet weak var bluetoothOnLabel: UILabel!
+    @IBOutlet weak var peripheralDiscoveredLabel: UILabel!
+    @IBOutlet weak var bluetoothOnView: UIView!
+    @IBOutlet weak var peripheralView: UIView!
+    
+    fileprivate var RRcentralManager = RRCentralManager.init()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        RRcentralManager.setDelegate(delegate: self)
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    override func viewDidAppear(_ animated: Bool) {
+        SCLAlertView().showInfo("Important info", subTitle: "Switch on BlueTooth!")
     }
 
 }
@@ -37,28 +41,25 @@ extension ViewController: CBCentralManagerDelegate {
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         switch central.state {
             
-        case .unknown:
-            print("Bluetooth status is UNKNOWN")
-        case .resetting:
-            print("Bluetooth status is RESETTING")
-        case .unsupported:
-            print("Bluetooth status is UNSUPPORTED")
-        case .unauthorized:
-            print("Bluetooth status is UNAUTHORIZED")
-        case .poweredOff:
-            print("Bluetooth status is POWERED OFF")
         case .poweredOn:
-            print("Bluetooth status is POWERED ON")
+            print("Bluetooth status is SWITCHED ON")
+            central.scanForPeripherals(withServices: nil, options: nil)
             
             DispatchQueue.main.async { () -> Void in
-                
-                // UI updates
-                
+                self.bluetoothOnView.backgroundColor = .green
             }
+        
+        default:
+            SCLAlertView().showInfo("Important info", subTitle: "Device Bluetooth Status: Not Powered On")
+            DispatchQueue.main.async { () -> Void in
+                self.bluetoothOnView.backgroundColor = .red
+                return;
+            }
+        
             
             // STEP 3.2: scan for peripherals that we're interested in
             
-//            RRManager().sharedCentralManager.scanForPeripherals(withServices: [BLE_Heart_Rate_Service_CBUUID])
+//            RRcentralManager.shared.scanForPeripherals(withServices: [BLE_Heart_Rate_Service_CBUUID])
             
         }
     }
@@ -89,7 +90,7 @@ extension ViewController: CBCentralManagerDelegate {
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         
         DispatchQueue.main.async { () -> Void in
-            // UI updates
+            self.bluetoothOnView.backgroundColor = .green
         }
         
         // STEP 8: look for services of interest on peripheral
@@ -102,7 +103,16 @@ extension ViewController: CBCentralManagerDelegate {
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         
         // print("Disconnected!")
-        
+        for service in peripheral.services! {
+            let thisService = service as CBService
+            print (service.uuid)
+//            if service.UUID == BEAN_SERVICE_UUID {
+//                peripheral.discoverCharacteristics(
+//                    nil,
+//                    forService: thisService
+//                )
+//            }
+        }
         DispatchQueue.main.async { () -> Void in
            // UI updates
         }
