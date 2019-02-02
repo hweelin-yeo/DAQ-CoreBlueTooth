@@ -23,11 +23,40 @@ protocol DataManagerDelegate: class {
 final class DataManager {
     
     weak var delegate: DataManagerDelegate?
+    fileprivate var prevWheelDataString: String?
     
     func parseRawData(data: String) {
         // assume it follows format
         let dataArray = data.components(separatedBy: ";")
+        
+        // when wheel data gets truncated
         guard (dataArray.count > 1) else {
+            
+            guard let prevWheel = prevWheelDataString, Int(data) != nil else { return }
+            
+            parseRawData(data: prevWheel + data)
+            
+            return
+        }
+        
+        // data clumping, e.g. gps clumps with wheel
+        guard (dataArray.count == 2) else {
+            
+            if (dataArray.count == 3) {
+                
+                guard let secSemiColonIndex = data.lastIndex(of: ";")?.encodedOffset else { return }
+            
+                
+                let dataStringOne = data.prefix(secSemiColonIndex - 1)
+                parseRawData(data: String(dataStringOne))
+                
+                let stringLength = data.count
+                prevWheelDataString = String(data.suffix(stringLength - (secSemiColonIndex - 1)))
+                
+                print (dataStringOne)
+                print (prevWheelDataString ?? "Error in decoding string")
+            }
+            
             return
         }
         
