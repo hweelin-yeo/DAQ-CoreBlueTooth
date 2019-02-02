@@ -33,11 +33,8 @@ class ViewController: UIViewController {
         //        testAlamofire()
         
         bluetoothManager.setCentralManagerDelegate(delegate: self)
+        checkIfAlreadyPoweredOn()
         // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        //        SCLAlertView().showInfo("Important info", subTitle: "Switch on BlueTooth!")
     }
     
 }
@@ -59,6 +56,23 @@ extension ViewController: DataManagerDelegate {
 // MARK: - CBCentralManagerDelegate
 extension ViewController: CBCentralManagerDelegate {
     
+    func checkIfAlreadyPoweredOn() {
+        let central = bluetoothManager.sharedCentralManager
+        
+        if (central.state == .poweredOn) {
+            print("Bluetooth status is already SWITCHED ON")
+            central.scanForPeripherals(withServices: [bluetoothManager.bleUUID], options: nil)
+            
+            DispatchQueue.main.async { () -> Void in
+                self.bluetoothOnView.backgroundColor = .green
+            }
+        } else {
+            DispatchQueue.main.async { () -> Void in
+                SCLAlertView().showInfo("Important info", subTitle: "Switch on BlueTooth!")
+            }
+        }
+    }
+    
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         switch central.state {
             
@@ -73,6 +87,7 @@ extension ViewController: CBCentralManagerDelegate {
         default:
             DispatchQueue.main.async { () -> Void in
                 self.bluetoothOnView.backgroundColor = .red
+                SCLAlertView().showInfo("Important info", subTitle: "Switch on BlueTooth!")
                 return;
             }
             
@@ -104,14 +119,14 @@ extension ViewController: CBCentralManagerDelegate {
     // STEP 15: when a peripheral disconnects, take
     // use-case-appropriate action
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
-        
+        SCLAlertView().showInfo("Error", subTitle: "Bluefruit Disconnected")
         print("Disconnected!")
         
     }
     
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
         guard error != nil else { return }
-        print("Failed to connect to peripheral")
+        SCLAlertView().showInfo("Error", subTitle: "Failed to connect with bluefruit")
     }
     
 }
