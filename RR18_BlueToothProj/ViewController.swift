@@ -59,14 +59,12 @@ extension ViewController: DataManagerDelegate {
 // MARK: - CBCentralManagerDelegate
 extension ViewController: CBCentralManagerDelegate {
     
-    // update State -> if PoweredOn, scan for peripherals -> discover peripherals
-    
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         switch central.state {
             
         case .poweredOn:
             print("Bluetooth status is SWITCHED ON")
-            central.scanForPeripherals(withServices: nil, options: nil)
+            central.scanForPeripherals(withServices: [bluetoothManager.bleUUID], options: nil)
             
             DispatchQueue.main.async { () -> Void in
                 self.bluetoothOnView.backgroundColor = .green
@@ -78,18 +76,13 @@ extension ViewController: CBCentralManagerDelegate {
                 return;
             }
             
-            
-            // STEP 3.2: scan for peripherals that we're interested in
-            
-            //            RRcentralManager.shared.scanForPeripherals(withServices: [BLE_Heart_Rate_Service_CBUUID])
-            
         }
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        // peripheral.identifier.uuidString == "0x282a7c000"
-        if (peripheral.name == "Adafruit Bluefruit LE") {
-            //            peripheral.delegate = self // NOTE 1: ORIGINAL
+        
+        if (peripheral.name == bluetoothManager.bleName) {
+            
             bluetoothManager.addPeripheral(peripheral: peripheral)
             bluetoothManager.setPeripheralDelegate(delegate: self)
             
@@ -135,8 +128,9 @@ extension ViewController: CBPeripheralDelegate {
         guard let services = peripheral.services else { return }
         
         services.forEach({ (service) in
-            print("Service: \(service)")
-            peripheral.discoverCharacteristics(nil, for: service)
+            if (service.uuid == bluetoothManager.bleUUID) {
+                peripheral.discoverCharacteristics(nil, for: service)
+            }
         })
         
     }
@@ -144,9 +138,9 @@ extension ViewController: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         
         guard let characteristics = service.characteristics else { return }
-        
+
         for characteristic in characteristics {
-            
+           
             // uuid for bluefruit's data characteristic
             if characteristic.uuid.uuidString == "6E400003-B5A3-F393-E0A9-E50E24DCCA9E" {
                 peripheral.readValue(for: characteristic)
@@ -170,10 +164,10 @@ extension ViewController: CBPeripheralDelegate {
         
         // TODO: updateUI
         // TODO: sendToServer
-            
-        }
         
     }
+    
+}
 
 // MARK: - Network Request Manager
 extension ViewController: NetworkRequestHandlerDelegate {
