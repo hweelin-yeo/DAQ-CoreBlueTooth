@@ -24,6 +24,7 @@ final class DataManager {
     
     weak var delegate: DataManagerDelegate?
     fileprivate var prevWheelDataString: String?
+    fileprivate var wheelTruncatedTimeStamp: String?
     
     func parseRawData(data: String) {
         // assume it follows format
@@ -32,9 +33,8 @@ final class DataManager {
         // when wheel data gets truncated
         guard (dataArray.count > 1) else {
             
-            guard let prevWheel = prevWheelDataString, Int(data) != nil else { return }
-            
-            parseRawData(data: prevWheel + data)
+            guard Int(data) != nil else { return }
+            wheelTruncatedTimeStamp = data
             
             return
         }
@@ -45,16 +45,20 @@ final class DataManager {
             if (dataArray.count == 3) {
                 
                 guard let secSemiColonIndex = data.lastIndex(of: ";")?.encodedOffset else { return }
-            
-                
+
+
                 let dataStringOne = data.prefix(secSemiColonIndex - 1)
-                parseRawData(data: String(dataStringOne))
                 
+                parseRawData(data: String(dataStringOne))
+
                 let stringLength = data.count
                 prevWheelDataString = String(data.suffix(stringLength - (secSemiColonIndex - 1)))
                 
-                print (dataStringOne)
-                print (prevWheelDataString ?? "Error in decoding string")
+                guard let prevWheel = prevWheelDataString, let wheelTime = wheelTruncatedTimeStamp else { return }
+                
+                parseRawData(data: prevWheel + wheelTime)
+
+
             }
             
             return
@@ -64,10 +68,10 @@ final class DataManager {
         let dataValue = dataArray[1]
         
         switch dataType {
-        case "bms":
+        case "b":
             parseBMSData(BMSData: dataValue)
             break
-        case "wheel":
+        case "w":
             parseWheelData(wheelData: dataValue)
             break
         case "gps":
@@ -76,14 +80,14 @@ final class DataManager {
         
         default:
             print("error in parsing data")
-            print(data)
+            print("the unparsable data is \(data)")
             
         }
         
     }
     
     fileprivate func parseBMSData(BMSData: String) {
-        print("parsing BMS Data")
+        print("parsing BMS Data: \(BMSData)")
         let dataArray = BMSData.components(separatedBy: "_")
         
         guard (dataArray.count == 4) else {
@@ -114,11 +118,11 @@ final class DataManager {
     }
     
     fileprivate func parseWheelData(wheelData: String) {
-        print("parsing wheel Data")
+        print("parsing wheel Data: \(wheelData)")
         let dataArray = wheelData.components(separatedBy: "_")
         
         guard (dataArray.count == 2) else {
-            print("BMSData corrupted: \(wheelData)")
+            print("Wheel Data corrupted: \(wheelData)")
             return
         }
         
@@ -127,7 +131,7 @@ final class DataManager {
         
     }
     fileprivate func parseGPSData(GPSData: String) {
-        
+        print("parsing gps data: \(GPSData)")
     }
 }
 

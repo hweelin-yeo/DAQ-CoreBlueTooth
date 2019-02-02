@@ -99,11 +99,6 @@ extension ViewController: CBCentralManagerDelegate {
         }
         
         peripheral.discoverServices(nil)
-        
-        
-        // STEP 8: look for services of interest on peripheral
-        //        peripheralHeartRateMonitor?.discoverServices([BLE_Heart_Rate_Service_CBUUID])
-        
     }
     
     // STEP 15: when a peripheral disconnects, take
