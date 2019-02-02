@@ -54,6 +54,7 @@ final class DataManager {
     }
     
     fileprivate func parseBMSData(BMSData: String) {
+        print("parsing BMS Data")
         let dataArray = BMSData.components(separatedBy: "_")
         
         guard (dataArray.count == 4) else {
@@ -84,6 +85,7 @@ final class DataManager {
     }
     
     fileprivate func parseWheelData(wheelData: String) {
+        print("parsing wheel Data")
         let dataArray = wheelData.components(separatedBy: "_")
         
         guard (dataArray.count == 2) else {
