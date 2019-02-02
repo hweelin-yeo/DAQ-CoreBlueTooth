@@ -8,16 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		2F37FE51CD6A8C8A39157506 /* Pods_RR18_BlueToothProj.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E158C39C6F3BAF6A8B0E6A2F /* Pods_RR18_BlueToothProj.framework */; };
+		BA207FCC21E005F900272ECC /* NetworkRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA207FCB21E005F900272ECC /* NetworkRequestManager.swift */; };
+		BA2608FE21A074FD00963D23 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2608FD21A074FD00963D23 /* DataManager.swift */; };
 		BAAA380B2169586D00E2CC95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAA380A2169586D00E2CC95 /* AppDelegate.swift */; };
 		BAAA380D2169586D00E2CC95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAA380C2169586D00E2CC95 /* ViewController.swift */; };
 		BAAA38102169586D00E2CC95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAAA380E2169586D00E2CC95 /* Main.storyboard */; };
 		BAAA38122169586D00E2CC95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAAA38112169586D00E2CC95 /* Assets.xcassets */; };
 		BAAA38152169586D00E2CC95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAAA38132169586D00E2CC95 /* LaunchScreen.storyboard */; };
-		BAAA381F2169645C00E2CC95 /* RRCentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAA381E2169645C00E2CC95 /* RRCentralManager.swift */; };
+		BAAA381F2169645C00E2CC95 /* RRBluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAA381E2169645C00E2CC95 /* RRBluetoothManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		243C13C5DC9DF4A73CC4FB9A /* Pods-RR18_BlueToothProj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RR18_BlueToothProj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RR18_BlueToothProj/Pods-RR18_BlueToothProj.debug.xcconfig"; sourceTree = "<group>"; };
+		BA207FCB21E005F900272ECC /* NetworkRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestManager.swift; sourceTree = "<group>"; };
+		BA2608FD21A074FD00963D23 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		BAAA38072169586D00E2CC95 /* RR18_BlueToothProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RR18_BlueToothProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAAA380A2169586D00E2CC95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAAA380C2169586D00E2CC95 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -25,7 +29,7 @@
 		BAAA38112169586D00E2CC95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAAA38142169586D00E2CC95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BAAA38162169586D00E2CC95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BAAA381E2169645C00E2CC95 /* RRCentralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRCentralManager.swift; sourceTree = "<group>"; };
+		BAAA381E2169645C00E2CC95 /* RRBluetoothManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRBluetoothManager.swift; sourceTree = "<group>"; };
 		D2A4FAE92B9B2C75B071F35D /* Pods-RR18_BlueToothProj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RR18_BlueToothProj.release.xcconfig"; path = "Pods/Target Support Files/Pods-RR18_BlueToothProj/Pods-RR18_BlueToothProj.release.xcconfig"; sourceTree = "<group>"; };
 		E158C39C6F3BAF6A8B0E6A2F /* Pods_RR18_BlueToothProj.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RR18_BlueToothProj.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -94,7 +98,9 @@
 		BAAA38202169646D00E2CC95 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				BAAA381E2169645C00E2CC95 /* RRCentralManager.swift */,
+				BA207FCB21E005F900272ECC /* NetworkRequestManager.swift */,
+				BAAA381E2169645C00E2CC95 /* RRBluetoothManager.swift */,
+				BA2608FD21A074FD00963D23 /* DataManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -179,12 +185,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RR18_BlueToothProj/Pods-RR18_BlueToothProj-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,8 +230,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAAA380D2169586D00E2CC95 /* ViewController.swift in Sources */,
+				BA207FCC21E005F900272ECC /* NetworkRequestManager.swift in Sources */,
+				BA2608FE21A074FD00963D23 /* DataManager.swift in Sources */,
 				BAAA380B2169586D00E2CC95 /* AppDelegate.swift in Sources */,
-				BAAA381F2169645C00E2CC95 /* RRCentralManager.swift in Sources */,
+				BAAA381F2169645C00E2CC95 /* RRBluetoothManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

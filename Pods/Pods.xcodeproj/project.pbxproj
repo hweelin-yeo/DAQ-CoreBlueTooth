@@ -7,96 +7,130 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0DAE2537580DE8EEBF35E5FE4C59AB50 /* SCLAlertView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC16F7AD93F57AA9DD681ED020B8080 /* SCLAlertView-dummy.m */; };
-		165A2382A5A487DE302ECDE3850E26C0 /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D7C12624AB36573B17A345B5C28FFE /* SCLAlertView.swift */; };
-		97082AF097D850A6BB02AB03C87453CA /* Pods-RR18_BlueToothProj-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 685CA4D0E631CFBB26518EE04E0AC566 /* Pods-RR18_BlueToothProj-dummy.m */; };
-		9F8010F08A411DE50FC30B64CEFC91E8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */; };
-		CE002B171261BD2B8AB10FB7A65C1A18 /* SCLAlertView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0455558A11C28325FCB8EE37AD233C19 /* SCLAlertView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DD1B56272801C9C5FDC8BFCC51210848 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */; };
-		DDA4DAB6A8A35645BA562AA520C812FF /* Pods-RR18_BlueToothProj-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F1406A592DAEB25EABF4850D0172705 /* Pods-RR18_BlueToothProj-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EE276C1C4EADA013E0EF508E2E0F0546 /* SCLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79976012D991BBCB570D7574B6552363 /* SCLExtensions.swift */; };
+		1FC3FD39157C2FFFF3869A1300730086 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6DC720ACE74601BE0216B46C1956C /* SessionDelegate.swift */; };
+		25DC8E1BEDCAE1EFBCA213C0CDA4B832 /* SCLAlertView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 04BB5FC7645AE3212F879886D23557F2 /* SCLAlertView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3512909B8D8A4B26F5C18FDF1E32AFE2 /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F052772FAA0E9C7B9D56ACFE0C3B8C8 /* SCLAlertView.swift */; };
+		36FF8853CB34A9297AFAA8F5F7456324 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63F9ECE313359F02CB8300B7BE0574 /* TaskDelegate.swift */; };
+		3813EA8C998E86212086D172711EC129 /* SCLAlertView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC0DB03AFA466C04082157A1EF89BE6 /* SCLAlertView-dummy.m */; };
+		39D56F52214442B49A791F7C845A7AFA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */; };
+		4E1A913EFB404FB11524718FF0298EFE /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A888C1DA574EB87A07FE132B5E9F762 /* Alamofire.swift */; };
+		500C8EDA60C07B0F127C7FC385E17D38 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476FC1A8B9BDE784AED555237BA4F28E /* Notifications.swift */; };
+		52237C35642089F77DD4D723CEB25737 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93AE3EA5C8FDF5C4940DB2F87ED62EB /* Response.swift */; };
+		58A9719584AFA2D108D9E5C585A79329 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B4F22AA7C54513C2236E1A90FDD0D9 /* Validation.swift */; };
+		5EE5FED83B90A606A763CF1114D1D6FB /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DFF08D053CF9ECBAB14010C84EEA50 /* ResponseSerialization.swift */; };
+		6BEA14EC335E07C7063CD1383C0C443C /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8A2B588734A64D34000273AC01DF64 /* ServerTrustPolicy.swift */; };
+		7068E8A7DDC1424EE8F24BC77E8746F4 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0AC75B69CF23070C91482B5096E915 /* SessionManager.swift */; };
+		796177DE2762F24DAC16A709FD954838 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD80F1CE3FD15A76273462A81E7E152 /* ParameterEncoding.swift */; };
+		8D1E66FE754A575BFFD9E0A4AD2E5ACC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */; };
+		945D44DBCEC46ADC0C0308EACEE4028E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */; };
+		965DACF3DC02857ECBE66C5CBA3DA5D4 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E14D8E47BE9BF9F5EAE04809987EB42 /* Request.swift */; };
+		9B27F7993B70F113C16F01F0FF652D16 /* Pods-RR18_BlueToothProj-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 685CA4D0E631CFBB26518EE04E0AC566 /* Pods-RR18_BlueToothProj-dummy.m */; };
+		A638268BE3329B75A2DE3FA0E7A6A1B4 /* SCLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E736538DA2431D57455C6BADC198AA2 /* SCLExtensions.swift */; };
+		B424F524BBBE34E685129945993809A8 /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = E296AA8FC34439A139AFB8256AEAAED6 /* Timeline.swift */; };
+		B77705737566AE83ED7E448923D7FA60 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F456560D68F54A6DF28310BB9ED4C6 /* NetworkReachabilityManager.swift */; };
+		BE4BA1EDE444A770F834605F4B65348E /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223419FF8F05A6454B615A0612AAF162 /* AFError.swift */; };
+		D4C3899574E9D5DF5E5DA52310560BCC /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D474A427D777E0B9729009340D149D6 /* Alamofire-dummy.m */; };
+		DBE6E2E4D205545E7988CFA5057C31D6 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787F4C7FCF15DC1C5AC0BC67F15FE5A6 /* DispatchQueue+Alamofire.swift */; };
+		E91BD767DE87D68B92879CB6E263CA3A /* Pods-RR18_BlueToothProj-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F1406A592DAEB25EABF4850D0172705 /* Pods-RR18_BlueToothProj-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EF1461221681BCA12A4147900A704727 /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E25A10CD76A07A7A02A474347A6B349F /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9EA61D484CC15FDDAB0D8C0D26D7949 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CA50D3C9FCC7AEDB31BB4F70CAB7D6 /* Result.swift */; };
+		FF9C7BC64DB23D2CED48197DE67F0335 /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B61CDFEAC219F153B76C8DB57A92D8 /* MultipartFormData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		FDA587B7ED15DB1E7EED348F4F475F3F /* PBXContainerItemProxy */ = {
+		15DF423139F6949DD40FF01209844F7B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C89FE1AEBDFE3D8B91CA6C9A42893D5E;
+			remoteGlobalIDString = A513F4058C2C867043640505C17DC1AB;
 			remoteInfo = SCLAlertView;
+		};
+		A55B0BF306DCFA681F7CECFB158366EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E76458C58C9140B6A16D60547E68E80C;
+			remoteInfo = Alamofire;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0455558A11C28325FCB8EE37AD233C19 /* SCLAlertView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SCLAlertView-umbrella.h"; sourceTree = "<group>"; };
+		04BB5FC7645AE3212F879886D23557F2 /* SCLAlertView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SCLAlertView-umbrella.h"; sourceTree = "<group>"; };
+		05C15943BC25FE1F4223E18A8E25B829 /* Pods_RR18_BlueToothProj.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RR18_BlueToothProj.framework; path = "Pods-RR18_BlueToothProj.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07947949940A317AA1EB1B2B6A32C92F /* Pods-RR18_BlueToothProj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RR18_BlueToothProj.debug.xcconfig"; sourceTree = "<group>"; };
-		1B2E111A388DDCA4AA65A4732F633A42 /* SCLAlertView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SCLAlertView.xcconfig; sourceTree = "<group>"; };
+		094E0C8B558F983FE4A7DB3E920CC0A8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1328C27B33377416B5841709A313FD21 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15DFF08D053CF9ECBAB14010C84EEA50 /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
+		223419FF8F05A6454B615A0612AAF162 /* AFError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AFError.swift; path = Source/AFError.swift; sourceTree = "<group>"; };
+		2A16B11F2B95A9ACFD7A492971EE6267 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E14D8E47BE9BF9F5EAE04809987EB42 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
+		41CA50D3C9FCC7AEDB31BB4F70CAB7D6 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
+		42F7BF4CAE9DE24DCFE7225D0AC47EB3 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Alamofire.modulemap; sourceTree = "<group>"; };
+		44F456560D68F54A6DF28310BB9ED4C6 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
+		476FC1A8B9BDE784AED555237BA4F28E /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
+		48DC694155BBCF661C985FA0C94D9BEB /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
+		4A888C1DA574EB87A07FE132B5E9F762 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
+		4E736538DA2431D57455C6BADC198AA2 /* SCLExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SCLExtensions.swift; path = SCLAlertView/SCLExtensions.swift; sourceTree = "<group>"; };
 		4F1406A592DAEB25EABF4850D0172705 /* Pods-RR18_BlueToothProj-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RR18_BlueToothProj-umbrella.h"; sourceTree = "<group>"; };
-		53D7C12624AB36573B17A345B5C28FFE /* SCLAlertView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SCLAlertView.swift; path = SCLAlertView/SCLAlertView.swift; sourceTree = "<group>"; };
 		5801C46D8C638742B09663A3C4519B05 /* Pods-RR18_BlueToothProj-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RR18_BlueToothProj-frameworks.sh"; sourceTree = "<group>"; };
+		5A63F9ECE313359F02CB8300B7BE0574 /* TaskDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskDelegate.swift; path = Source/TaskDelegate.swift; sourceTree = "<group>"; };
+		5F052772FAA0E9C7B9D56ACFE0C3B8C8 /* SCLAlertView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SCLAlertView.swift; path = SCLAlertView/SCLAlertView.swift; sourceTree = "<group>"; };
+		67410036325C0CFDB98228B98043BDAE /* SCLAlertView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SCLAlertView.modulemap; sourceTree = "<group>"; };
 		685CA4D0E631CFBB26518EE04E0AC566 /* Pods-RR18_BlueToothProj-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RR18_BlueToothProj-dummy.m"; sourceTree = "<group>"; };
 		68A24C063DF38D4FF1210F88E8EC96A6 /* Pods-RR18_BlueToothProj.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RR18_BlueToothProj.modulemap"; sourceTree = "<group>"; };
-		79976012D991BBCB570D7574B6552363 /* SCLExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SCLExtensions.swift; path = SCLAlertView/SCLExtensions.swift; sourceTree = "<group>"; };
-		7B29FFE123CFB35F2DF48623D8A7D6C9 /* SCLAlertView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SCLAlertView-prefix.pch"; sourceTree = "<group>"; };
-		8CC16F7AD93F57AA9DD681ED020B8080 /* SCLAlertView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SCLAlertView-dummy.m"; sourceTree = "<group>"; };
+		74F6DC720ACE74601BE0216B46C1956C /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/SessionDelegate.swift; sourceTree = "<group>"; };
+		787F4C7FCF15DC1C5AC0BC67F15FE5A6 /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Alamofire.swift"; path = "Source/DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
+		79B61CDFEAC219F153B76C8DB57A92D8 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
+		7FC0DB03AFA466C04082157A1EF89BE6 /* SCLAlertView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SCLAlertView-dummy.m"; sourceTree = "<group>"; };
 		8E4B070C32C4E10943AA8AA63AF6D14A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F85A853A72E9DF93C52823D9ED3FCAF /* SCLAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SCLAlertView.framework; path = SCLAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9574B1C18AD79A30CACDA38FC9E781BE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A443F2477599784D8888DC2F36ED0417 /* SCLAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SCLAlertView.framework; path = SCLAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AF85EDA67668F2A87E05C94973FA07DC /* SCLAlertView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SCLAlertView.modulemap; sourceTree = "<group>"; };
-		BE31ACA3B6CA5A0B1C9993C319A3BA32 /* Pods_RR18_BlueToothProj.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RR18_BlueToothProj.framework; path = "Pods-RR18_BlueToothProj.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D474A427D777E0B9729009340D149D6 /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
+		AF8A2B588734A64D34000273AC01DF64 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
+		C4481F4AAA4FEEA1E3D8A3B56FB72748 /* SCLAlertView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SCLAlertView.xcconfig; sourceTree = "<group>"; };
 		C73BF533A85ED739E44BC38D9DB873E6 /* Pods-RR18_BlueToothProj-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RR18_BlueToothProj-resources.sh"; sourceTree = "<group>"; };
+		CB3E97B5D436B625E3263A581B676219 /* SCLAlertView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SCLAlertView-prefix.pch"; sourceTree = "<group>"; };
 		D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D8B4F22AA7C54513C2236E1A90FDD0D9 /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
+		DA0AC75B69CF23070C91482B5096E915 /* SessionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionManager.swift; path = Source/SessionManager.swift; sourceTree = "<group>"; };
 		DD07C59BF8EB9616408A91780A61C61C /* Pods-RR18_BlueToothProj-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RR18_BlueToothProj-acknowledgements.plist"; sourceTree = "<group>"; };
+		E25A10CD76A07A7A02A474347A6B349F /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-umbrella.h"; sourceTree = "<group>"; };
+		E296AA8FC34439A139AFB8256AEAAED6 /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
+		E4999508FAFEF84AF2FD47C9909262D0 /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
+		E93AE3EA5C8FDF5C4940DB2F87ED62EB /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
 		ED008C919F2E922D477ACF201D97D79A /* Pods-RR18_BlueToothProj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RR18_BlueToothProj.release.xcconfig"; sourceTree = "<group>"; };
+		EDD80F1CE3FD15A76273462A81E7E152 /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
 		FE4B6EDC7EAC8DFAF04C678912DE1667 /* Pods-RR18_BlueToothProj-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RR18_BlueToothProj-acknowledgements.markdown"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		785F319145290D3539DE836CA37B07C2 /* Frameworks */ = {
+		6E8AF668A2161F7D6F680F721DB65D2D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F8010F08A411DE50FC30B64CEFC91E8 /* Foundation.framework in Frameworks */,
+				8D1E66FE754A575BFFD9E0A4AD2E5ACC /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		86EB52199B31B5495F99C12B5B5CBB8E /* Frameworks */ = {
+		B20FAFCD60A8C20776667857FAE1F07C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD1B56272801C9C5FDC8BFCC51210848 /* Foundation.framework in Frameworks */,
+				945D44DBCEC46ADC0C0308EACEE4028E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E75059DD8EE5498FEC3B88B22AEF927B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39D56F52214442B49A791F7C845A7AFA /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		21236440975E0D8924F5FBFD0C9D1478 /* SCLAlertView */ = {
-			isa = PBXGroup;
-			children = (
-				53D7C12624AB36573B17A345B5C28FFE /* SCLAlertView.swift */,
-				79976012D991BBCB570D7574B6552363 /* SCLExtensions.swift */,
-				261B10EE7D4B771695C1B274A158CD5B /* Support Files */,
-			);
-			name = SCLAlertView;
-			path = SCLAlertView;
-			sourceTree = "<group>";
-		};
-		261B10EE7D4B771695C1B274A158CD5B /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				9574B1C18AD79A30CACDA38FC9E781BE /* Info.plist */,
-				AF85EDA67668F2A87E05C94973FA07DC /* SCLAlertView.modulemap */,
-				1B2E111A388DDCA4AA65A4732F633A42 /* SCLAlertView.xcconfig */,
-				8CC16F7AD93F57AA9DD681ED020B8080 /* SCLAlertView-dummy.m */,
-				7B29FFE123CFB35F2DF48623D8A7D6C9 /* SCLAlertView-prefix.pch */,
-				0455558A11C28325FCB8EE37AD233C19 /* SCLAlertView-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/SCLAlertView";
-			sourceTree = "<group>";
-		};
 		44D5347904CF754D6785B84253F2574A /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,13 +139,18 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		6B9D4744886D545B529E1F596E200AB3 /* Products */ = {
+		4A8921804DA9221C63ECA64D9E307A95 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				BE31ACA3B6CA5A0B1C9993C319A3BA32 /* Pods_RR18_BlueToothProj.framework */,
-				A443F2477599784D8888DC2F36ED0417 /* SCLAlertView.framework */,
+				1328C27B33377416B5841709A313FD21 /* Info.plist */,
+				67410036325C0CFDB98228B98043BDAE /* SCLAlertView.modulemap */,
+				C4481F4AAA4FEEA1E3D8A3B56FB72748 /* SCLAlertView.xcconfig */,
+				7FC0DB03AFA466C04082157A1EF89BE6 /* SCLAlertView-dummy.m */,
+				CB3E97B5D436B625E3263A581B676219 /* SCLAlertView-prefix.pch */,
+				04BB5FC7645AE3212F879886D23557F2 /* SCLAlertView-umbrella.h */,
 			);
-			name = Products;
+			name = "Support Files";
+			path = "../Target Support Files/SCLAlertView";
 			sourceTree = "<group>";
 		};
 		791E655F471D3512968378F5ACC0BC60 /* Pods-RR18_BlueToothProj */ = {
@@ -137,10 +176,30 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				CE1D7C96A3A3C0CED68FBC36DB57C4C4 /* Pods */,
-				6B9D4744886D545B529E1F596E200AB3 /* Products */,
+				7FEAC08FD5053F2574FDA6BF42B97B2A /* Pods */,
+				C30BDCB6C889EA677AF90BB1A2B56D61 /* Products */,
 				F0715568CE2FEC45542CED9DB8552BC4 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		7FEAC08FD5053F2574FDA6BF42B97B2A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EFED286CC9EAE3C45B4D0D223BE716A9 /* Alamofire */,
+				AB267711CBA367A4B2B032E0DE458175 /* SCLAlertView */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AB267711CBA367A4B2B032E0DE458175 /* SCLAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				5F052772FAA0E9C7B9D56ACFE0C3B8C8 /* SCLAlertView.swift */,
+				4E736538DA2431D57455C6BADC198AA2 /* SCLExtensions.swift */,
+				4A8921804DA9221C63ECA64D9E307A95 /* Support Files */,
+			);
+			name = SCLAlertView;
+			path = SCLAlertView;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -151,12 +210,54 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CE1D7C96A3A3C0CED68FBC36DB57C4C4 /* Pods */ = {
+		C30BDCB6C889EA677AF90BB1A2B56D61 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				21236440975E0D8924F5FBFD0C9D1478 /* SCLAlertView */,
+				2A16B11F2B95A9ACFD7A492971EE6267 /* Alamofire.framework */,
+				05C15943BC25FE1F4223E18A8E25B829 /* Pods_RR18_BlueToothProj.framework */,
+				8F85A853A72E9DF93C52823D9ED3FCAF /* SCLAlertView.framework */,
 			);
-			name = Pods;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EE2464C631E09E309E3DF4C898C64797 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				42F7BF4CAE9DE24DCFE7225D0AC47EB3 /* Alamofire.modulemap */,
+				E4999508FAFEF84AF2FD47C9909262D0 /* Alamofire.xcconfig */,
+				9D474A427D777E0B9729009340D149D6 /* Alamofire-dummy.m */,
+				48DC694155BBCF661C985FA0C94D9BEB /* Alamofire-prefix.pch */,
+				E25A10CD76A07A7A02A474347A6B349F /* Alamofire-umbrella.h */,
+				094E0C8B558F983FE4A7DB3E920CC0A8 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Alamofire";
+			sourceTree = "<group>";
+		};
+		EFED286CC9EAE3C45B4D0D223BE716A9 /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				223419FF8F05A6454B615A0612AAF162 /* AFError.swift */,
+				4A888C1DA574EB87A07FE132B5E9F762 /* Alamofire.swift */,
+				787F4C7FCF15DC1C5AC0BC67F15FE5A6 /* DispatchQueue+Alamofire.swift */,
+				79B61CDFEAC219F153B76C8DB57A92D8 /* MultipartFormData.swift */,
+				44F456560D68F54A6DF28310BB9ED4C6 /* NetworkReachabilityManager.swift */,
+				476FC1A8B9BDE784AED555237BA4F28E /* Notifications.swift */,
+				EDD80F1CE3FD15A76273462A81E7E152 /* ParameterEncoding.swift */,
+				2E14D8E47BE9BF9F5EAE04809987EB42 /* Request.swift */,
+				E93AE3EA5C8FDF5C4940DB2F87ED62EB /* Response.swift */,
+				15DFF08D053CF9ECBAB14010C84EEA50 /* ResponseSerialization.swift */,
+				41CA50D3C9FCC7AEDB31BB4F70CAB7D6 /* Result.swift */,
+				AF8A2B588734A64D34000273AC01DF64 /* ServerTrustPolicy.swift */,
+				74F6DC720ACE74601BE0216B46C1956C /* SessionDelegate.swift */,
+				DA0AC75B69CF23070C91482B5096E915 /* SessionManager.swift */,
+				5A63F9ECE313359F02CB8300B7BE0574 /* TaskDelegate.swift */,
+				E296AA8FC34439A139AFB8256AEAAED6 /* Timeline.swift */,
+				D8B4F22AA7C54513C2236E1A90FDD0D9 /* Validation.swift */,
+				EE2464C631E09E309E3DF4C898C64797 /* Support Files */,
+			);
+			name = Alamofire;
+			path = Alamofire;
 			sourceTree = "<group>";
 		};
 		F0715568CE2FEC45542CED9DB8552BC4 /* Targets Support Files */ = {
@@ -170,33 +271,61 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		7CA82B1870C609D0760B830D76256C74 /* Headers */ = {
+		12AC14BE82AA479E8CDBEFB479746DC4 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDA4DAB6A8A35645BA562AA520C812FF /* Pods-RR18_BlueToothProj-umbrella.h in Headers */,
+				25DC8E1BEDCAE1EFBCA213C0CDA4B832 /* SCLAlertView-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E1467E75C3D6F290D9091E72E9209CD9 /* Headers */ = {
+		50578A8C89079401C20ECA81F23DDECE /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE002B171261BD2B8AB10FB7A65C1A18 /* SCLAlertView-umbrella.h in Headers */,
+				E91BD767DE87D68B92879CB6E263CA3A /* Pods-RR18_BlueToothProj-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6A607506FEAAC7C41268D3E5CF4E5FE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF1461221681BCA12A4147900A704727 /* Alamofire-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		C89FE1AEBDFE3D8B91CA6C9A42893D5E /* SCLAlertView */ = {
+		34C1DCBC7C4E34A49CC051CA687AF851 /* Pods-RR18_BlueToothProj */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D335AA9A135E8693DA3D6730D6FEA2FE /* Build configuration list for PBXNativeTarget "SCLAlertView" */;
+			buildConfigurationList = C4D1CAFB98EA6AC97A007ACDE6C4EB8A /* Build configuration list for PBXNativeTarget "Pods-RR18_BlueToothProj" */;
 			buildPhases = (
-				E1467E75C3D6F290D9091E72E9209CD9 /* Headers */,
-				476132BB9A84B3CE51241EB8BE3507EA /* Sources */,
-				86EB52199B31B5495F99C12B5B5CBB8E /* Frameworks */,
-				277B97EAA23B10583A47D76E696AE33B /* Resources */,
+				50578A8C89079401C20ECA81F23DDECE /* Headers */,
+				FC8E2F725932DC6F3E502D446628B004 /* Sources */,
+				E75059DD8EE5498FEC3B88B22AEF927B /* Frameworks */,
+				E7613BC3214C3D8B6E4CF14DC38B5E70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9DC4C28639DA9917F8B0F6867A8F392B /* PBXTargetDependency */,
+				33213F707047A818024C3563D973DC5C /* PBXTargetDependency */,
+			);
+			name = "Pods-RR18_BlueToothProj";
+			productName = "Pods-RR18_BlueToothProj";
+			productReference = 05C15943BC25FE1F4223E18A8E25B829 /* Pods_RR18_BlueToothProj.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A513F4058C2C867043640505C17DC1AB /* SCLAlertView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7F0A4E6850CB28901A588E6921D73703 /* Build configuration list for PBXNativeTarget "SCLAlertView" */;
+			buildPhases = (
+				12AC14BE82AA479E8CDBEFB479746DC4 /* Headers */,
+				F6338FD377FB53C6260A59127DAC998B /* Sources */,
+				B20FAFCD60A8C20776667857FAE1F07C /* Frameworks */,
+				F154CB6703854A42AB52AD56FFD88780 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -204,26 +333,25 @@
 			);
 			name = SCLAlertView;
 			productName = SCLAlertView;
-			productReference = A443F2477599784D8888DC2F36ED0417 /* SCLAlertView.framework */;
+			productReference = 8F85A853A72E9DF93C52823D9ED3FCAF /* SCLAlertView.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		DDE8410EFC2264343F849B2A52C47F48 /* Pods-RR18_BlueToothProj */ = {
+		E76458C58C9140B6A16D60547E68E80C /* Alamofire */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D4F368CC61F0B6E9200642DDC09891AD /* Build configuration list for PBXNativeTarget "Pods-RR18_BlueToothProj" */;
+			buildConfigurationList = 427F0F003A1AD80AE00155AFCDEFAC20 /* Build configuration list for PBXNativeTarget "Alamofire" */;
 			buildPhases = (
-				7CA82B1870C609D0760B830D76256C74 /* Headers */,
-				204B5C136715C0C2FA5FA1C7C2F4B38B /* Sources */,
-				785F319145290D3539DE836CA37B07C2 /* Frameworks */,
-				D7C2DDC3A026F78B2D7FCA40FBA175C3 /* Resources */,
+				A6A607506FEAAC7C41268D3E5CF4E5FE /* Headers */,
+				CC399CEC576B42C962CEB290481CAF95 /* Sources */,
+				6E8AF668A2161F7D6F680F721DB65D2D /* Frameworks */,
+				3DDB7E21141D7764AE4658D5B6AFF8C6 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E333F76A146077F8EC4D1E09C7B5998B /* PBXTargetDependency */,
 			);
-			name = "Pods-RR18_BlueToothProj";
-			productName = "Pods-RR18_BlueToothProj";
-			productReference = BE31ACA3B6CA5A0B1C9993C319A3BA32 /* Pods_RR18_BlueToothProj.framework */;
+			name = Alamofire;
+			productName = Alamofire;
+			productReference = 2A16B11F2B95A9ACFD7A492971EE6267 /* Alamofire.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -243,25 +371,33 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 6B9D4744886D545B529E1F596E200AB3 /* Products */;
+			productRefGroup = C30BDCB6C889EA677AF90BB1A2B56D61 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DDE8410EFC2264343F849B2A52C47F48 /* Pods-RR18_BlueToothProj */,
-				C89FE1AEBDFE3D8B91CA6C9A42893D5E /* SCLAlertView */,
+				E76458C58C9140B6A16D60547E68E80C /* Alamofire */,
+				34C1DCBC7C4E34A49CC051CA687AF851 /* Pods-RR18_BlueToothProj */,
+				A513F4058C2C867043640505C17DC1AB /* SCLAlertView */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		277B97EAA23B10583A47D76E696AE33B /* Resources */ = {
+		3DDB7E21141D7764AE4658D5B6AFF8C6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D7C2DDC3A026F78B2D7FCA40FBA175C3 /* Resources */ = {
+		E7613BC3214C3D8B6E4CF14DC38B5E70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F154CB6703854A42AB52AD56FFD88780 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -271,42 +407,71 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		204B5C136715C0C2FA5FA1C7C2F4B38B /* Sources */ = {
+		CC399CEC576B42C962CEB290481CAF95 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97082AF097D850A6BB02AB03C87453CA /* Pods-RR18_BlueToothProj-dummy.m in Sources */,
+				BE4BA1EDE444A770F834605F4B65348E /* AFError.swift in Sources */,
+				D4C3899574E9D5DF5E5DA52310560BCC /* Alamofire-dummy.m in Sources */,
+				4E1A913EFB404FB11524718FF0298EFE /* Alamofire.swift in Sources */,
+				DBE6E2E4D205545E7988CFA5057C31D6 /* DispatchQueue+Alamofire.swift in Sources */,
+				FF9C7BC64DB23D2CED48197DE67F0335 /* MultipartFormData.swift in Sources */,
+				B77705737566AE83ED7E448923D7FA60 /* NetworkReachabilityManager.swift in Sources */,
+				500C8EDA60C07B0F127C7FC385E17D38 /* Notifications.swift in Sources */,
+				796177DE2762F24DAC16A709FD954838 /* ParameterEncoding.swift in Sources */,
+				965DACF3DC02857ECBE66C5CBA3DA5D4 /* Request.swift in Sources */,
+				52237C35642089F77DD4D723CEB25737 /* Response.swift in Sources */,
+				5EE5FED83B90A606A763CF1114D1D6FB /* ResponseSerialization.swift in Sources */,
+				F9EA61D484CC15FDDAB0D8C0D26D7949 /* Result.swift in Sources */,
+				6BEA14EC335E07C7063CD1383C0C443C /* ServerTrustPolicy.swift in Sources */,
+				1FC3FD39157C2FFFF3869A1300730086 /* SessionDelegate.swift in Sources */,
+				7068E8A7DDC1424EE8F24BC77E8746F4 /* SessionManager.swift in Sources */,
+				36FF8853CB34A9297AFAA8F5F7456324 /* TaskDelegate.swift in Sources */,
+				B424F524BBBE34E685129945993809A8 /* Timeline.swift in Sources */,
+				58A9719584AFA2D108D9E5C585A79329 /* Validation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		476132BB9A84B3CE51241EB8BE3507EA /* Sources */ = {
+		F6338FD377FB53C6260A59127DAC998B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DAE2537580DE8EEBF35E5FE4C59AB50 /* SCLAlertView-dummy.m in Sources */,
-				165A2382A5A487DE302ECDE3850E26C0 /* SCLAlertView.swift in Sources */,
-				EE276C1C4EADA013E0EF508E2E0F0546 /* SCLExtensions.swift in Sources */,
+				3813EA8C998E86212086D172711EC129 /* SCLAlertView-dummy.m in Sources */,
+				3512909B8D8A4B26F5C18FDF1E32AFE2 /* SCLAlertView.swift in Sources */,
+				A638268BE3329B75A2DE3FA0E7A6A1B4 /* SCLExtensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC8E2F725932DC6F3E502D446628B004 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B27F7993B70F113C16F01F0FF652D16 /* Pods-RR18_BlueToothProj-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		E333F76A146077F8EC4D1E09C7B5998B /* PBXTargetDependency */ = {
+		33213F707047A818024C3563D973DC5C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SCLAlertView;
-			target = C89FE1AEBDFE3D8B91CA6C9A42893D5E /* SCLAlertView */;
-			targetProxy = FDA587B7ED15DB1E7EED348F4F475F3F /* PBXContainerItemProxy */;
+			target = A513F4058C2C867043640505C17DC1AB /* SCLAlertView */;
+			targetProxy = 15DF423139F6949DD40FF01209844F7B /* PBXContainerItemProxy */;
+		};
+		9DC4C28639DA9917F8B0F6867A8F392B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			target = E76458C58C9140B6A16D60547E68E80C /* Alamofire */;
+			targetProxy = A55B0BF306DCFA681F7CECFB158366EE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		4748104854EFE13E25ACB106196521DD /* Debug */ = {
+		2A03D91D951518C100A4931F749127B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 07947949940A317AA1EB1B2B6A32C92F /* Pods-RR18_BlueToothProj.debug.xcconfig */;
+			baseConfigurationReference = E4999508FAFEF84AF2FD47C9909262D0 /* Alamofire.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -316,26 +481,25 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-RR18_BlueToothProj/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Alamofire/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-RR18_BlueToothProj/Pods-RR18_BlueToothProj.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
+				PRODUCT_MODULE_NAME = Alamofire;
+				PRODUCT_NAME = Alamofire;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		48ABC5ADF4F29C2D90717CCB4FF52C13 /* Release */ = {
+		3D3AAD97196A8195964CC0FF3EE96F69 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ED008C919F2E922D477ACF201D97D79A /* Pods-RR18_BlueToothProj.release.xcconfig */;
 			buildSettings = {
@@ -370,9 +534,9 @@
 			};
 			name = Release;
 		};
-		AE7759C9DCB7F9D4F72CA5CD7FBAA2F5 /* Debug */ = {
+		4B5FAD3271CEF329C565FB48EDCF0ABB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1B2E111A388DDCA4AA65A4732F633A42 /* SCLAlertView.xcconfig */;
+			baseConfigurationReference = C4481F4AAA4FEEA1E3D8A3B56FB72748 /* SCLAlertView.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -395,6 +559,73 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9446F1DF032A0B2E0A647898F1B3034E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4999508FAFEF84AF2FD47C9909262D0 /* Alamofire.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Alamofire/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
+				PRODUCT_MODULE_NAME = Alamofire;
+				PRODUCT_NAME = Alamofire;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BA27B9BC70AA24E7FA919CB0489EFD55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07947949940A317AA1EB1B2B6A32C92F /* Pods-RR18_BlueToothProj.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-RR18_BlueToothProj/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-RR18_BlueToothProj/Pods-RR18_BlueToothProj.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -529,9 +760,9 @@
 			};
 			name = Release;
 		};
-		D3B807878E4B0074FCDF5D12D027314C /* Release */ = {
+		E71C72CD7883D977877A55897B158F76 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1B2E111A388DDCA4AA65A4732F633A42 /* SCLAlertView.xcconfig */;
+			baseConfigurationReference = C4481F4AAA4FEEA1E3D8A3B56FB72748 /* SCLAlertView.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -555,11 +786,10 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
@@ -573,20 +803,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D335AA9A135E8693DA3D6730D6FEA2FE /* Build configuration list for PBXNativeTarget "SCLAlertView" */ = {
+		427F0F003A1AD80AE00155AFCDEFAC20 /* Build configuration list for PBXNativeTarget "Alamofire" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AE7759C9DCB7F9D4F72CA5CD7FBAA2F5 /* Debug */,
-				D3B807878E4B0074FCDF5D12D027314C /* Release */,
+				2A03D91D951518C100A4931F749127B5 /* Debug */,
+				9446F1DF032A0B2E0A647898F1B3034E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D4F368CC61F0B6E9200642DDC09891AD /* Build configuration list for PBXNativeTarget "Pods-RR18_BlueToothProj" */ = {
+		7F0A4E6850CB28901A588E6921D73703 /* Build configuration list for PBXNativeTarget "SCLAlertView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4748104854EFE13E25ACB106196521DD /* Debug */,
-				48ABC5ADF4F29C2D90717CCB4FF52C13 /* Release */,
+				E71C72CD7883D977877A55897B158F76 /* Debug */,
+				4B5FAD3271CEF329C565FB48EDCF0ABB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4D1CAFB98EA6AC97A007ACDE6C4EB8A /* Build configuration list for PBXNativeTarget "Pods-RR18_BlueToothProj" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA27B9BC70AA24E7FA919CB0489EFD55 /* Debug */,
+				3D3AAD97196A8195964CC0FF3EE96F69 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -7,4 +7,5 @@ target 'RR18_BlueToothProj' do
 
   # Pods for RR18_BlueToothProj
 pod 'SCLAlertView'
+pod 'Alamofire'
 end
