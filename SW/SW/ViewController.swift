@@ -22,7 +22,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var startStopWatch: Bool = true
     var addLap: Bool = false
-    var startEndRun: Bool = true
+    //var clearWhole: Bool = true
     
     
     @IBOutlet weak var stopwatchLabel: UILabel!
@@ -32,7 +32,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var startStopButton: UIButton!
     @IBOutlet weak var lapresetButton: UIButton!
     
-    @IBOutlet weak var startEndRunButton: UIButton!
+   // @IBOutlet weak var clearButton: UIButton!
     
     @IBOutlet var fNum: UILabel!
     @IBOutlet var sNum: UILabel!
@@ -41,18 +41,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var speedLabel: UILabel!
     @IBOutlet weak var lapNumberLabel: UILabel!
     @IBOutlet weak var lapCountNumber: UILabel!
+//
+//    @IBAction func clearAll(_ sender: Any) {
+//        if clearWhole == true{
+//            clearButton.setTitle("Done", for: UIControl.State.normal)
+//            clearWhole = false
+//            lapCountNumber.text = String(0)
+//            stopwatchLabel.text = "00:00.00"
+//            laps.removeAll()
+//            lapsTableView.reloadData()
+//
+//        }
+//        else{
+//            clearWhole = true
+//            clearButton.setTitle("Clear", for: UIControl.State.normal)
+//        }
+//    }
     
     
-    @IBAction func startEndRun(_ sender: Any) {
-        if startEndRun == true{
-            startEndRunButton.setTitle("End Run", for: UIControl.State.normal)
-            startEndRun = false
-        }
-        else{
-            startEndRun = true
-            startEndRunButton.setTitle("Start Run", for: UIControl.State.normal)
-        }
-    }
     
     @IBAction func startStop(_ sender:AnyObject) {
         
@@ -73,7 +79,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             startStopWatch = true
             
             startStopButton.setImage(UIImage(named: "start.png"), for: .normal)
-            lapresetButton.setImage(UIImage(named: "lap.png"), for: .normal)
+            lapresetButton.setImage(UIImage(named: "reset.png"), for: .normal)
             
             addLap = false
             
@@ -121,7 +127,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         sNum.textAlignment = .center
         
         fNum.bounds.size = CGSize(width: 80, height: 80)
-        fNum.backgroundColor = .yellow
+        fNum.backgroundColor = .red
         self.fNum.layer.cornerRadius = fNum.frame.size.height/2
         fNum.clipsToBounds = true
         fNum.textAlignment = .center
@@ -132,6 +138,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         lapresetButton.layer.cornerRadius = lapresetButton.frame.size.height/2
         lapresetButton.clipsToBounds = true
+        
+        lapsTableView.backgroundColor = .black
         
         
         
@@ -164,18 +172,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //Table View Methods
     func tableView(_ tableView:UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
+        
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier:"Cell")
         
-        cell.backgroundColor = self.view.backgroundColor
+        cell.backgroundColor = .black//self.view.backgroundColor
+        
         cell.textLabel?.text = "Lap \(laps.count-indexPath.row)"
         cell.detailTextLabel?.text = laps[indexPath.row]
-        
+        cell.textLabel?.textColor = UIColor.white
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return laps.count
+            return laps.count
     }
     
-}
 
+
+    
+}
