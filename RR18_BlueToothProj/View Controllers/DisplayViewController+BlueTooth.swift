@@ -10,37 +10,8 @@ import UIKit
 import SCLAlertView
 import CoreBluetooth
 
-class ViewController: UIViewController {
-    
-    // MARK: UI
-    
-    @IBOutlet weak var bluetoothOnLabel: UILabel!
-    @IBOutlet weak var peripheralDiscoveredLabel: UILabel!
-    @IBOutlet weak var bluetoothOnView: UIView!
-    @IBOutlet weak var peripheralView: UIView!
-    @IBOutlet weak var speedLabel: UILabel!
-    @IBOutlet weak var speedValueLabel: UILabel!
-    @IBOutlet weak var speedUnitLabel: UILabel!
-    
-    fileprivate var bluetoothManager = RRBluetoothManager()
-    fileprivate var networkRequestManager = NetworkRequestManager()
-    fileprivate var dataManager = DataManager()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupDataManager()
-        setupNetworkRequestManager()
-        //        testAlamofire()
-        
-        bluetoothManager.setCentralManagerDelegate(delegate: self)
-        checkIfAlreadyPoweredOn()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-}
-
 // MARK: - DataManagerDelegate
-extension ViewController: DataManagerDelegate {
+extension DisplayViewController: DataManagerDelegate {
     func updateBMSUI() {
         // implement
     }
@@ -49,12 +20,10 @@ extension ViewController: DataManagerDelegate {
     func setupDataManager() {
         dataManager.delegate = self
     }
-    
-    
 }
 
 // MARK: - CBCentralManagerDelegate
-extension ViewController: CBCentralManagerDelegate {
+extension DisplayViewController: CBCentralManagerDelegate {
     
     func checkIfAlreadyPoweredOn() {
         let central = bluetoothManager.sharedCentralManager
@@ -66,6 +35,7 @@ extension ViewController: CBCentralManagerDelegate {
             DispatchQueue.main.async { () -> Void in
                 self.bluetoothOnView.backgroundColor = .green
             }
+            
         } else {
             DispatchQueue.main.async { () -> Void in
                 SCLAlertView().showInfo("Important info", subTitle: "Switch on BlueTooth!")
@@ -80,13 +50,16 @@ extension ViewController: CBCentralManagerDelegate {
             print("Bluetooth status is SWITCHED ON")
             central.scanForPeripherals(withServices: [bluetoothManager.bleUUID], options: nil)
             
-            DispatchQueue.main.async { () -> Void in
+        DispatchQueue.main.async { () -> Void in
                 self.bluetoothOnView.backgroundColor = .green
             }
             
         default:
+        
             DispatchQueue.main.async { () -> Void in
                 self.bluetoothOnView.backgroundColor = .red
+                self.peripheralView.backgroundColor = .red
+                
                 SCLAlertView().showInfo("Important info", subTitle: "Switch on BlueTooth!")
                 return;
             }
@@ -119,8 +92,10 @@ extension ViewController: CBCentralManagerDelegate {
     // STEP 15: when a peripheral disconnects, take
     // use-case-appropriate action
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
+ 
         SCLAlertView().showInfo("Error", subTitle: "Bluefruit Disconnected")
         print("Disconnected!")
+        
         
     }
     
@@ -132,7 +107,7 @@ extension ViewController: CBCentralManagerDelegate {
 }
 
 // MARK: - CBPeripheralDelegate
-extension ViewController: CBPeripheralDelegate {
+extension DisplayViewController: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         
         guard let services = peripheral.services else { return }
@@ -180,14 +155,14 @@ extension ViewController: CBPeripheralDelegate {
 }
 
 // MARK: - Network Request Manager
-extension ViewController: NetworkRequestHandlerDelegate {
+extension DisplayViewController: NetworkRequestHandlerDelegate {
     
     func setupNetworkRequestManager() {
         networkRequestManager.delegate = self
     }
     
     func handleFetchedData(response: String) {
-        print(response)
+        self.response = response
     }
     
     

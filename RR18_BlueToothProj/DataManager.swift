@@ -22,6 +22,7 @@ protocol DataManagerDelegate: class {
 
 final class DataManager {
     
+    
     weak var delegate: DataManagerDelegate?
     fileprivate var prevWheelDataString: String?
     fileprivate var wheelTruncatedTimeStamp: String?
