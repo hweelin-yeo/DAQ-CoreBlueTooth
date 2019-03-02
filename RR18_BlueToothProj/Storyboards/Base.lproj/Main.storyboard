@@ -138,6 +138,15 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c0b-zP-Fnr">
+                                        <rect key="frame" x="0.0" y="0.0" width="194" height="320"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="My4-46-dOq" appends="YES" id="D0k-RC-PgE"/>
+                                        </connections>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -155,12 +164,14 @@
                         <outlet property="lapsTableView" destination="4AG-4F-sOS" id="sLC-Hu-MFM"/>
                         <outlet property="peripheralView" destination="1ei-HG-4eb" id="Cvz-Pp-Gl3"/>
                         <outlet property="sNum" destination="7X5-iJ-bXM" id="egk-57-Eg3"/>
+                        <outlet property="sideTouchView" destination="c0b-zP-Fnr" id="d6d-30-eJN"/>
                         <outlet property="speedLabel" destination="Z1j-za-cvS" id="NbO-8A-xXu"/>
                         <outlet property="startStopButton" destination="Hoo-Mc-Y3U" id="dFL-jG-rCL"/>
                         <outlet property="stopwatchLabel" destination="aTG-jM-eKv" id="Oee-kp-JCi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="My4-46-dOq"/>
             </objects>
             <point key="canvasLocation" x="135.21126760563379" y="133.125"/>
         </scene>

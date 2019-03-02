@@ -17,6 +17,7 @@ class DisplayViewController: UIViewController {
     @IBOutlet weak var startStopButton: UIButton!
     @IBOutlet weak var lapresetButton: UIButton!
     
+    @IBOutlet weak var sideTouchView: UIView!
     // @IBOutlet weak var clearButton: UIButton!
     
     @IBOutlet var fNum: UILabel!
@@ -53,6 +54,14 @@ class DisplayViewController: UIViewController {
         setupNetworkRequestManager()
         bluetoothManager.setCentralManagerDelegate(delegate: self)
         checkIfAlreadyPoweredOn()
+        
+    
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap(sender:)))
+        
+        // Optionally set the number of required taps, e.g., 2 for a double click
+        tapGestureRecognizer.numberOfTapsRequired = 2
+        sideTouchView.isUserInteractionEnabled = true
+    sideTouchView.addGestureRecognizer(tapGestureRecognizer)
     }
     
     override func didReceiveMemoryWarning() {
@@ -113,7 +122,11 @@ extension DisplayViewController {
         lapresetButton.clipsToBounds = true
         
         lapsTableView.backgroundColor = .black
+        
+        sideTouchView.backgroundColor = UIColor(white: 1, alpha: 0.0)
     }
+    
+    
     
     @objc func updateStopwatch(){
         
@@ -146,6 +159,7 @@ extension DisplayViewController {
         // get the date time String from the date object
         return formatter.string(from: currentDateTime) // October 8, 2016 at 10:48:53 PM
     }
+    
     
     @IBAction func startStop(_ sender:AnyObject) {
         
@@ -194,6 +208,14 @@ extension DisplayViewController {
         }
     }
     
+    func didTap(sender: UITapGestureRecognizer) {
+        print("Gesture recognized")
+        stopwatch.addLap = true
+        laps.insert(stopwatch.stopwatchString, at:0)
+        lapsTableView.reloadData()
+        lapCountNumber.text = String(laps.count)
+    }
+
     @IBAction func lapReset(_ sender: AnyObject) {
         
         if stopwatch.addLap == true {
