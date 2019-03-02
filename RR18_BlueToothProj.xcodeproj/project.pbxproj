@@ -13,6 +13,11 @@
 		BA08C5C922188FC00034603F /* lap.png in Resources */ = {isa = PBXBuildFile; fileRef = BA08C5C522188FBF0034603F /* lap.png */; };
 		BA08C5CA22188FC00034603F /* reset.png in Resources */ = {isa = PBXBuildFile; fileRef = BA08C5C622188FBF0034603F /* reset.png */; };
 		BA08C5CB22188FC00034603F /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = BA08C5C722188FBF0034603F /* start.png */; };
+		BA0F1ED2222B0F3D000E41DC /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F1ED1222B0F3D000E41DC /* EndPointType.swift */; };
+		BA0F1ED5222B13D2000E41DC /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F1ED4222B13D2000E41DC /* HTTP.swift */; };
+		BA0F1ED7222B157F000E41DC /* ParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F1ED6222B157F000E41DC /* ParameterEncoder.swift */; };
+		BA0F1ED9222B1983000E41DC /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F1ED8222B1983000E41DC /* NetworkRouter.swift */; };
+		BA0F1EDD222B2398000E41DC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F1EDC222B2398000E41DC /* NetworkManager.swift */; };
 		BA207FCC21E005F900272ECC /* NetworkRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA207FCB21E005F900272ECC /* NetworkRequestManager.swift */; };
 		BA2608FE21A074FD00963D23 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2608FD21A074FD00963D23 /* DataManager.swift */; };
 		BAAA380B2169586D00E2CC95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAA380A2169586D00E2CC95 /* AppDelegate.swift */; };
@@ -31,6 +36,11 @@
 		BA08C5C522188FBF0034603F /* lap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lap.png; sourceTree = "<group>"; };
 		BA08C5C622188FBF0034603F /* reset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reset.png; sourceTree = "<group>"; };
 		BA08C5C722188FBF0034603F /* start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start.png; sourceTree = "<group>"; };
+		BA0F1ED1222B0F3D000E41DC /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
+		BA0F1ED4222B13D2000E41DC /* HTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
+		BA0F1ED6222B157F000E41DC /* ParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoder.swift; sourceTree = "<group>"; };
+		BA0F1ED8222B1983000E41DC /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
+		BA0F1EDC222B2398000E41DC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		BA207FCB21E005F900272ECC /* NetworkRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestManager.swift; sourceTree = "<group>"; };
 		BA2608FD21A074FD00963D23 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		BAAA38072169586D00E2CC95 /* RR18_BlueToothProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RR18_BlueToothProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +104,18 @@
 			path = "Button Pics";
 			sourceTree = "<group>";
 		};
+		BA0F1ED3222B0F49000E41DC /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				BA0F1ED1222B0F3D000E41DC /* EndPointType.swift */,
+				BA0F1EDC222B2398000E41DC /* NetworkManager.swift */,
+				BA0F1ED4222B13D2000E41DC /* HTTP.swift */,
+				BA0F1ED6222B157F000E41DC /* ParameterEncoder.swift */,
+				BA0F1ED8222B1983000E41DC /* NetworkRouter.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		BAAA37FE2169586D00E2CC95 = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +141,7 @@
 				BAEFCC4422189700004F6F87 /* View Controllers */,
 				BAAA38202169646D00E2CC95 /* Managers */,
 				BAEFCC452218970B004F6F87 /* Data */,
+				BA0F1ED3222B0F49000E41DC /* Networking */,
 				BAEFCC4622189724004F6F87 /* Storyboards */,
 				BA08C5C222188FBF0034603F /* Button Images */,
 				BAAA38112169586D00E2CC95 /* Assets.xcassets */,
@@ -292,11 +315,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAAA380D2169586D00E2CC95 /* DisplayViewController+BlueTooth.swift in Sources */,
+				BA0F1ED9222B1983000E41DC /* NetworkRouter.swift in Sources */,
 				BA08C5C122188FB30034603F /* DisplayViewController.swift in Sources */,
+				BA0F1EDD222B2398000E41DC /* NetworkManager.swift in Sources */,
+				BA0F1ED2222B0F3D000E41DC /* EndPointType.swift in Sources */,
 				BA207FCC21E005F900272ECC /* NetworkRequestManager.swift in Sources */,
 				BA2608FE21A074FD00963D23 /* DataManager.swift in Sources */,
+				BA0F1ED5222B13D2000E41DC /* HTTP.swift in Sources */,
 				BAAA380B2169586D00E2CC95 /* AppDelegate.swift in Sources */,
 				BAEFCC432218969A004F6F87 /* Stopwatch.swift in Sources */,
+				BA0F1ED7222B157F000E41DC /* ParameterEncoder.swift in Sources */,
 				BAAA381F2169645C00E2CC95 /* RRBluetoothManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
