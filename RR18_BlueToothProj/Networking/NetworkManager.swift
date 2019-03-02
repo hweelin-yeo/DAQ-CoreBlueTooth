@@ -50,8 +50,10 @@ struct NetworkManager {
                         return
                     }
                     do {
-//                        let apiResponse = try JSONDecoder
-                            completion(responseData.base64EncodedString(), nil)
+                        let apiResponse = try JSONDecoder().decode(getRunIDAPIResponse.self, from: responseData)
+                            completion(String(apiResponse.runID), nil)
+                    } catch {
+                        completion(nil, NetworkResponse.unableToDecode.rawValue)
                     }
                     
                 case .failure(let networkFailureError):
