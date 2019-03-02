@@ -151,20 +151,34 @@ extension DisplayViewController {
         
         if stopwatch.startStopWatch == true {
             
+            //get runID
+            networkRequestManager.makeGetRequest(url: networkRequestManager.baseUrl + "/getRunID")
+            
             let timeInterval = NSDate().timeIntervalSince1970.description
-            networkRequestManager.makeGetRequest(url: networkRequestManager.baseUrl + "getRunID")
             
             let runName = date()
-            let para = ["timestamp": timeInterval , "runID": ,"runName":runName ]
+            let para = ["timestamp": timeInterval , "runID": "gh".self,"runName":runName ] as [String : Any]
             
-            networkRequestManager.makePostRequest(url: networkRequestManager.baseUrl + "/startRun", parameters: para)
+            //start Run
+            networkRequestManager.makePostRequest(url: networkRequestManager.baseUrl + "/startRun", parameters: para as! [String : String])
             
+            //end Run
+            networkRequestManager.makePostRequest(url: networkRequestManager.baseUrl + "/endRun", parameters: para as! [String : String])
+            
+            //startLap
+            networkRequestManager.makePostRequest(url: networkRequestManager.baseUrl + "/startLap", parameters: para as! [String : String])
+            
+            //endLap
+            networkRequestManager.makePostRequest(url: networkRequestManager.baseUrl + "/endLap", parameters: para as! [String : String])
+            
+            //timer
             stopwatch.timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateStopwatch), userInfo: nil, repeats: true)
+            
             RunLoop.main.add(stopwatch.timer, forMode: RunLoop.Mode.commonModes)
             stopwatch.startStopWatch = false
             
             startStopButton.setImage(UIImage(named:"stop.png"),for: UIControl.State.normal)
-            lapresetButton.setImage(UIImage(named:"lap.png"),for:UIControl.State.normal)
+        lapresetButton.setImage(UIImage(named:"lap.png"),for:UIControl.State.normal)
             
             stopwatch.addLap = true
             

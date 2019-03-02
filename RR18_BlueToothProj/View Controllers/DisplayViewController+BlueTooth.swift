@@ -162,7 +162,7 @@ extension DisplayViewController: NetworkRequestHandlerDelegate {
     }
     
     func handleFetchedData(response: String) {
-        self.response = response
+        
     }
     
     

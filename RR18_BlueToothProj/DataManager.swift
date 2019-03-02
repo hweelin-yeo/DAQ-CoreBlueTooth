@@ -16,6 +16,14 @@ struct OtherData {
     
 }
 
+struct runID {
+    var runID = 1;
+//    if (endLap is posted){
+//        runID += 1;
+//    }
+    
+}
+
 protocol DataManagerDelegate: class {
     func updateBMSUI()
 }
@@ -26,6 +34,8 @@ final class DataManager {
     weak var delegate: DataManagerDelegate?
     fileprivate var prevWheelDataString: String?
     fileprivate var wheelTruncatedTimeStamp: String?
+    
+
     
     func parseRawData(data: String) {
         // assume it follows format
