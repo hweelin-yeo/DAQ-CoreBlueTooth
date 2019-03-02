@@ -155,7 +155,8 @@ extension DisplayViewController {
             networkRequestManager.makeGetRequest(url: networkRequestManager.baseUrl + "getRunID")
             
             let runName = date()
-                para = ["timestamp":timeInterval , "runID": ,"runName":runName ]
+            let para = ["timestamp": timeInterval , "runID": ,"runName":runName ]
+            
             networkRequestManager.makePostRequest(url: networkRequestManager.baseUrl + "/startRun", parameters: para)
             
             stopwatch.timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateStopwatch), userInfo: nil, repeats: true)
