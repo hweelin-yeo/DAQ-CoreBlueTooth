@@ -18,11 +18,15 @@ protocol EndPointType {
 }
 
 public enum api {
-    case startRun
-    case endRun
-    case startLap
-    case endLap
+    case startRun(time: String, id: String, name: String)
+    case endRun(time: String, id: String, name: String)
+    case startLap(time: String, id: String, name: String, lapID: String)
+    case endLap(time: String, id: String, name: String, lapID: String)
     case getRunID
+    case updateBMS(time: String, batLvl: String, batTemp: String, powerCons: String)
+    case updateWheel(time: String, rpm: String)
+    case updateGPS(time: String, lat: String, long: String)
+    
 }
 
 extension api: EndPointType {
@@ -44,6 +48,12 @@ extension api: EndPointType {
             return "endLap"
         case .getRunID:
             return "getRunID"
+        case .updateBMS:
+            return "updateBmsData"
+        case .updateWheel:
+            return "updateWheelData"
+        case .updateGPS:
+            return "updateGpsData"
         }
     }
     
@@ -59,15 +69,49 @@ extension api: EndPointType {
             return .post
         case .getRunID:
             return .get
+        case .updateBMS:
+            return .post
+        case .updateWheel:
+            return .post
+        case .updateGPS:
+            return .post
         }
     }
     
     var task: HTTPTask {
         switch self {
-        case .getRunID():
+        case .getRunID:
             return .request
-        default:
-            return .request
+        case .startRun(let time, let id, let name):
+            return .requestParameters(bodyParameters: ["timestamp": time,
+                                                       "run_id": id,
+                                                       "run_name": name], urlParameters: nil)
+        case .startLap (let time, let id, let name, let lapID):
+            return .requestParameters(bodyParameters: ["timestamp": time,
+                                                       "run_id": id,
+                                                       "run_name": name,
+                                                       "lap_id": lapID], urlParameters: nil)
+        case .endRun(let time, let id, let name):
+            return .requestParameters(bodyParameters: ["timestamp": time,
+                                                       "run_id": id,
+                                                       "run_name": name], urlParameters: nil)
+        case .endLap(let time, let id, let name, let lapID):
+            return .requestParameters(bodyParameters: ["timestamp": time,
+                                                       "run_id": id,
+                                                       "run_name": name,
+                                                       "lap_id": lapID], urlParameters: nil)
+        case .updateBMS(let time, let batLvl, let batTemp, let powerCons):
+            return .requestParameters(bodyParameters: ["timestamp": time,
+                                                       "batt_lvl": batLvl,
+                                                       "batt_temp": batTemp,
+                                                       "power_consump": powerCons], urlParameters: nil)
+        case .updateWheel(let time, let rpm):
+            return .requestParameters(bodyParameters: ["timestamp": time,
+                                                       "w_rpm": rpm], urlParameters: nil)
+        case .updateGPS(let time, let lat, let long):
+            return .requestParameters(bodyParameters: ["timestamp": time,
+            "lat": lat,
+            "long": long], urlParameters: nil)
         }
     }
     
