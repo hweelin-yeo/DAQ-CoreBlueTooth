@@ -8,28 +8,52 @@
 
 /* Begin PBXBuildFile section */
 		2F37FE51CD6A8C8A39157506 /* Pods_RR18_BlueToothProj.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E158C39C6F3BAF6A8B0E6A2F /* Pods_RR18_BlueToothProj.framework */; };
+		BA08C5C122188FB30034603F /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA08C5C022188FB30034603F /* DisplayViewController.swift */; };
+		BA08C5C822188FC00034603F /* stop.png in Resources */ = {isa = PBXBuildFile; fileRef = BA08C5C422188FBF0034603F /* stop.png */; };
+		BA08C5C922188FC00034603F /* lap.png in Resources */ = {isa = PBXBuildFile; fileRef = BA08C5C522188FBF0034603F /* lap.png */; };
+		BA08C5CA22188FC00034603F /* reset.png in Resources */ = {isa = PBXBuildFile; fileRef = BA08C5C622188FBF0034603F /* reset.png */; };
+		BA08C5CB22188FC00034603F /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = BA08C5C722188FBF0034603F /* start.png */; };
+		BA0F1ED2222B0F3D000E41DC /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F1ED1222B0F3D000E41DC /* EndPointType.swift */; };
+		BA0F1ED5222B13D2000E41DC /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F1ED4222B13D2000E41DC /* HTTP.swift */; };
+		BA0F1ED7222B157F000E41DC /* ParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F1ED6222B157F000E41DC /* ParameterEncoder.swift */; };
+		BA0F1ED9222B1983000E41DC /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F1ED8222B1983000E41DC /* NetworkRouter.swift */; };
+		BA0F1EDD222B2398000E41DC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F1EDC222B2398000E41DC /* NetworkManager.swift */; };
+		BA0F1EDF222B3159000E41DC /* Decodables.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F1EDE222B3159000E41DC /* Decodables.swift */; };
 		BA207FCC21E005F900272ECC /* NetworkRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA207FCB21E005F900272ECC /* NetworkRequestManager.swift */; };
 		BA2608FE21A074FD00963D23 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2608FD21A074FD00963D23 /* DataManager.swift */; };
 		BAAA380B2169586D00E2CC95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAA380A2169586D00E2CC95 /* AppDelegate.swift */; };
-		BAAA380D2169586D00E2CC95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAA380C2169586D00E2CC95 /* ViewController.swift */; };
+		BAAA380D2169586D00E2CC95 /* DisplayViewController+BlueTooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAA380C2169586D00E2CC95 /* DisplayViewController+BlueTooth.swift */; };
 		BAAA38102169586D00E2CC95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAAA380E2169586D00E2CC95 /* Main.storyboard */; };
 		BAAA38122169586D00E2CC95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAAA38112169586D00E2CC95 /* Assets.xcassets */; };
 		BAAA38152169586D00E2CC95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAAA38132169586D00E2CC95 /* LaunchScreen.storyboard */; };
 		BAAA381F2169645C00E2CC95 /* RRBluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAA381E2169645C00E2CC95 /* RRBluetoothManager.swift */; };
+		BAEFCC432218969A004F6F87 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEFCC422218969A004F6F87 /* Stopwatch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		243C13C5DC9DF4A73CC4FB9A /* Pods-RR18_BlueToothProj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RR18_BlueToothProj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RR18_BlueToothProj/Pods-RR18_BlueToothProj.debug.xcconfig"; sourceTree = "<group>"; };
+		BA08C5C022188FB30034603F /* DisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayViewController.swift; sourceTree = "<group>"; };
+		BA08C5C422188FBF0034603F /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop.png; sourceTree = "<group>"; };
+		BA08C5C522188FBF0034603F /* lap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lap.png; sourceTree = "<group>"; };
+		BA08C5C622188FBF0034603F /* reset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reset.png; sourceTree = "<group>"; };
+		BA08C5C722188FBF0034603F /* start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start.png; sourceTree = "<group>"; };
+		BA0F1ED1222B0F3D000E41DC /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
+		BA0F1ED4222B13D2000E41DC /* HTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
+		BA0F1ED6222B157F000E41DC /* ParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoder.swift; sourceTree = "<group>"; };
+		BA0F1ED8222B1983000E41DC /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
+		BA0F1EDC222B2398000E41DC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		BA0F1EDE222B3159000E41DC /* Decodables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decodables.swift; sourceTree = "<group>"; };
 		BA207FCB21E005F900272ECC /* NetworkRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestManager.swift; sourceTree = "<group>"; };
 		BA2608FD21A074FD00963D23 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		BAAA38072169586D00E2CC95 /* RR18_BlueToothProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RR18_BlueToothProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAAA380A2169586D00E2CC95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BAAA380C2169586D00E2CC95 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BAAA380C2169586D00E2CC95 /* DisplayViewController+BlueTooth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DisplayViewController+BlueTooth.swift"; sourceTree = "<group>"; };
 		BAAA380F2169586D00E2CC95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BAAA38112169586D00E2CC95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAAA38142169586D00E2CC95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BAAA38162169586D00E2CC95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAAA381E2169645C00E2CC95 /* RRBluetoothManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRBluetoothManager.swift; sourceTree = "<group>"; };
+		BAEFCC422218969A004F6F87 /* Stopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
 		D2A4FAE92B9B2C75B071F35D /* Pods-RR18_BlueToothProj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RR18_BlueToothProj.release.xcconfig"; path = "Pods/Target Support Files/Pods-RR18_BlueToothProj/Pods-RR18_BlueToothProj.release.xcconfig"; sourceTree = "<group>"; };
 		E158C39C6F3BAF6A8B0E6A2F /* Pods_RR18_BlueToothProj.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RR18_BlueToothProj.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -63,6 +87,38 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BA08C5C222188FBF0034603F /* Button Images */ = {
+			isa = PBXGroup;
+			children = (
+				BA08C5C322188FBF0034603F /* Button Pics */,
+			);
+			path = "Button Images";
+			sourceTree = "<group>";
+		};
+		BA08C5C322188FBF0034603F /* Button Pics */ = {
+			isa = PBXGroup;
+			children = (
+				BA08C5C422188FBF0034603F /* stop.png */,
+				BA08C5C522188FBF0034603F /* lap.png */,
+				BA08C5C622188FBF0034603F /* reset.png */,
+				BA08C5C722188FBF0034603F /* start.png */,
+			);
+			path = "Button Pics";
+			sourceTree = "<group>";
+		};
+		BA0F1ED3222B0F49000E41DC /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				BA0F1ED1222B0F3D000E41DC /* EndPointType.swift */,
+				BA0F1EDC222B2398000E41DC /* NetworkManager.swift */,
+				BA0F1EDE222B3159000E41DC /* Decodables.swift */,
+				BA0F1ED4222B13D2000E41DC /* HTTP.swift */,
+				BA0F1ED6222B157F000E41DC /* ParameterEncoder.swift */,
+				BA0F1ED8222B1983000E41DC /* NetworkRouter.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		BAAA37FE2169586D00E2CC95 = {
 			isa = PBXGroup;
 			children = (
@@ -85,11 +141,13 @@
 			isa = PBXGroup;
 			children = (
 				BAAA380A2169586D00E2CC95 /* AppDelegate.swift */,
-				BAAA380C2169586D00E2CC95 /* ViewController.swift */,
+				BAEFCC4422189700004F6F87 /* View Controllers */,
 				BAAA38202169646D00E2CC95 /* Managers */,
-				BAAA380E2169586D00E2CC95 /* Main.storyboard */,
+				BAEFCC452218970B004F6F87 /* Data */,
+				BA0F1ED3222B0F49000E41DC /* Networking */,
+				BAEFCC4622189724004F6F87 /* Storyboards */,
+				BA08C5C222188FBF0034603F /* Button Images */,
 				BAAA38112169586D00E2CC95 /* Assets.xcassets */,
-				BAAA38132169586D00E2CC95 /* LaunchScreen.storyboard */,
 				BAAA38162169586D00E2CC95 /* Info.plist */,
 			);
 			path = RR18_BlueToothProj;
@@ -103,6 +161,32 @@
 				BA2608FD21A074FD00963D23 /* DataManager.swift */,
 			);
 			name = Managers;
+			sourceTree = "<group>";
+		};
+		BAEFCC4422189700004F6F87 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BA08C5C022188FB30034603F /* DisplayViewController.swift */,
+				BAAA380C2169586D00E2CC95 /* DisplayViewController+BlueTooth.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		BAEFCC452218970B004F6F87 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				BAEFCC422218969A004F6F87 /* Stopwatch.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		BAEFCC4622189724004F6F87 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				BAAA380E2169586D00E2CC95 /* Main.storyboard */,
+				BAAA38132169586D00E2CC95 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +223,7 @@
 				TargetAttributes = {
 					BAAA38062169586D00E2CC95 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = Q8VHLMFG35;
+						DevelopmentTeam = 4DXST3Z9LY;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -168,8 +252,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAAA38152169586D00E2CC95 /* LaunchScreen.storyboard in Resources */,
+				BA08C5CA22188FC00034603F /* reset.png in Resources */,
+				BA08C5C822188FC00034603F /* stop.png in Resources */,
 				BAAA38122169586D00E2CC95 /* Assets.xcassets in Resources */,
+				BA08C5C922188FC00034603F /* lap.png in Resources */,
 				BAAA38102169586D00E2CC95 /* Main.storyboard in Resources */,
+				BA08C5CB22188FC00034603F /* start.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,10 +317,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAAA380D2169586D00E2CC95 /* ViewController.swift in Sources */,
+				BAAA380D2169586D00E2CC95 /* DisplayViewController+BlueTooth.swift in Sources */,
+				BA0F1ED9222B1983000E41DC /* NetworkRouter.swift in Sources */,
+				BA08C5C122188FB30034603F /* DisplayViewController.swift in Sources */,
+				BA0F1EDD222B2398000E41DC /* NetworkManager.swift in Sources */,
+				BA0F1ED2222B0F3D000E41DC /* EndPointType.swift in Sources */,
+				BA0F1EDF222B3159000E41DC /* Decodables.swift in Sources */,
 				BA207FCC21E005F900272ECC /* NetworkRequestManager.swift in Sources */,
 				BA2608FE21A074FD00963D23 /* DataManager.swift in Sources */,
+				BA0F1ED5222B13D2000E41DC /* HTTP.swift in Sources */,
 				BAAA380B2169586D00E2CC95 /* AppDelegate.swift in Sources */,
+				BAEFCC432218969A004F6F87 /* Stopwatch.swift in Sources */,
+				BA0F1ED7222B157F000E41DC /* ParameterEncoder.swift in Sources */,
 				BAAA381F2169645C00E2CC95 /* RRBluetoothManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,10 +455,10 @@
 			baseConfigurationReference = 243C13C5DC9DF4A73CC4FB9A /* Pods-RR18_BlueToothProj.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Q8VHLMFG35;
+				DEVELOPMENT_TEAM = 4DXST3Z9LY;
 				INFOPLIST_FILE = RR18_BlueToothProj/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "hweelin-yeo.RR18-BlueToothProj";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.appcoda.Resistance-Racing";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -373,10 +469,10 @@
 			baseConfigurationReference = D2A4FAE92B9B2C75B071F35D /* Pods-RR18_BlueToothProj.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Q8VHLMFG35;
+				DEVELOPMENT_TEAM = 4DXST3Z9LY;
 				INFOPLIST_FILE = RR18_BlueToothProj/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "hweelin-yeo.RR18-BlueToothProj";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.appcoda.Resistance-Racing";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

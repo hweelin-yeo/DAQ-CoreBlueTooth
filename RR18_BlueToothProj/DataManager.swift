@@ -16,66 +16,61 @@ struct OtherData {
     
 }
 
+struct runID {
+    var runID = 1;
+//    if (endLap is posted){
+//        runID += 1;
+//    }
+    
+}
+
 protocol DataManagerDelegate: class {
     func updateBMSUI()
 }
 
 final class DataManager {
     
+    
     weak var delegate: DataManagerDelegate?
-    fileprivate var prevWheelDataString: String?
+    fileprivate var prevBMSData: String?
+    fileprivate var prevGPSData: String?
     fileprivate var wheelTruncatedTimeStamp: String?
+    
+
     
     func parseRawData(data: String) {
         // assume it follows format
+        print("raw data is \(data)")
         let dataArray = data.components(separatedBy: ";")
         
-        // when wheel data gets truncated
-        guard (dataArray.count > 1) else {
-            
-            guard Int(data) != nil else { return }
-            wheelTruncatedTimeStamp = data
-            
-            return
-        }
-        
-        // data clumping, e.g. gps clumps with wheel
-        guard (dataArray.count == 2) else {
-            
-            if (dataArray.count == 3) {
-                
-                guard let secSemiColonIndex = data.lastIndex(of: ";")?.encodedOffset else { return }
-
-
-                let dataStringOne = data.prefix(secSemiColonIndex - 1)
-                
-                parseRawData(data: String(dataStringOne))
-
-                let stringLength = data.count
-                prevWheelDataString = String(data.suffix(stringLength - (secSemiColonIndex - 1)))
-                
-                guard let prevWheel = prevWheelDataString, let wheelTime = wheelTruncatedTimeStamp else { return }
-                
-                parseRawData(data: prevWheel + wheelTime)
-
-
+        // assert that data is _;_ else it may be secondary gps string
+        guard dataArray.count > 2 else {
+            if (data.first == "g") {
+                guard let GPSData = prevGPSData else { return }
+                prevGPSData = nil
+                parseGPSData(GPSData: GPSData, GPSSecData: String(data.dropFirst()))
             }
-            
             return
         }
         
+        // parse data
         let dataType = dataArray[0]
         let dataValue = dataArray[1]
         
         switch dataType {
         case "b":
-            parseBMSData(BMSData: dataValue)
+            prevBMSData = dataValue
+            break
+        case "bt":
+            guard let bmsData = prevBMSData else { return }
+            prevBMSData = nil
+            parseBMSData(BMSData: bmsData, BMSTime: dataValue)
             break
         case "w":
             parseWheelData(wheelData: dataValue)
             break
-        case "gps":
-            parseGPSData(GPSData: dataValue)
+        case "g1":
+            prevGPSData = dataValue
             break
         
         default:
@@ -86,11 +81,11 @@ final class DataManager {
         
     }
     
-    fileprivate func parseBMSData(BMSData: String) {
+    fileprivate func parseBMSData(BMSData: String, BMSTime: String) {
         print("parsing BMS Data: \(BMSData)")
         let dataArray = BMSData.components(separatedBy: "_")
         
-        guard (dataArray.count == 4) else {
+        guard (dataArray.count == 3) else {
             print("BMSData corrupted: \(BMSData)")
             return
         }
@@ -110,10 +105,12 @@ final class DataManager {
             return
         }
         
-//        let capacityRemaining = dataArray[0].dropFirst()
-//        let peakTemperature = dataArray[1].dropFirst()
-//        let powerConsumption = dataArray[2].dropFirst()
-//        let time = dataArray[3]
+        let capacityRemaining = dataArray[0].dropFirst()
+        let peakTemperature = dataArray[1].dropFirst()
+        let powerConsumption = dataArray[2].dropFirst()
+        let time = BMSTime
+        
+        
         
     }
     
@@ -130,7 +127,7 @@ final class DataManager {
 //        let time = dataArray[1]
         
     }
-    fileprivate func parseGPSData(GPSData: String) {
+    fileprivate func parseGPSData(GPSData: String, GPSSecData: String) {
         print("parsing gps data: \(GPSData)")
     }
 }

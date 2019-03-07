@@ -9,6 +9,10 @@
 import Foundation
 import Alamofire
 
+struct response {
+    var responseString: String?
+}
+
 protocol NetworkRequestHandlerDelegate {
     
     func handleFetchedData(response: String)
@@ -17,6 +21,7 @@ protocol NetworkRequestHandlerDelegate {
 
 struct NetworkRequestManager {
     
+    var baseUrl = "https://obscure-plateau-15593.herokuapp.com/"
     var delegate: NetworkRequestHandlerDelegate?
     
     func makeGetRequest(url: String) {
@@ -82,7 +87,7 @@ struct NetworkRequestManager {
                     print(error)
                 }
                 if let value = response.result.value {
-                    print(value)
+                    self.delegate?.handleFetchedData(response: value)
                 }
         }
     }
