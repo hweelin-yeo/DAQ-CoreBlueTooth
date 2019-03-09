@@ -34,6 +34,12 @@ final class DataManager {
     fileprivate var wheelTruncatedTimeStamp: String?
     var runData: RunData = RunData()
     
+    let dateFormatter = DateFormatter()
+    
+    init() {
+        dateFormatter.dateStyle = .full
+    }
+    
     func getRunIDString() -> String? {
         guard let runID = runData.runID else { return nil }
         return String(runID)
@@ -76,9 +82,10 @@ final class DataManager {
             prevBMSData = dataValue
             break
         case "bt":
+            let timeInterval = String(Int(NSDate().timeIntervalSince1970))
             guard let bmsData = prevBMSData else { return }
             prevBMSData = nil
-            parseBMSData(BMSData: bmsData, BMSTime: dataValue)
+            parseBMSData(BMSData: bmsData, BMSTime: timeInterval)
             break
         case "w":
             parseWheelData(wheelData: dataValue)
@@ -123,9 +130,8 @@ final class DataManager {
         let capacityRemaining = dataArray[0].dropFirst()
         let peakTemperature = dataArray[1].dropFirst()
         let powerConsumption = dataArray[2].dropFirst()
-        let time = BMSTime
-        
-        
+        let timeInterval = String(Int(NSDate().timeIntervalSince1970))
+        let time = timeInterval
         
     }
     
