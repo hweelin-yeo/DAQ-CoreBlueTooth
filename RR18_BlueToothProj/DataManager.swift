@@ -122,20 +122,19 @@ final class DataManager {
         }
         
         guard dataArray[1].first == "T" else {
-            print("BMSData corrupted at 'C': \(BMSData)")
+            print("BMSData corrupted at 'T': \(BMSData)")
             return
         }
         
         guard dataArray[2].first == "P" else {
-            print("BMSData corrupted at 'C': \(BMSData)")
+            print("BMSData corrupted at 'P': \(BMSData)")
             return
         }
         
         let capacityRemaining = dataArray[0].dropFirst()
         let peakTemperature = dataArray[1].dropFirst()
         let powerConsumption = dataArray[2].dropFirst()
-        let timeInterval = String(Int(NSDate().timeIntervalSince1970))
-        let time = timeInterval
+        let time = String(Int(NSDate().timeIntervalSince1970))
         
     }
     
@@ -153,7 +152,19 @@ final class DataManager {
         
     }
     fileprivate func parseGPSData(GPSData: String, GPSSecData: String) {
-//        print("parsing gps data: \(GPSData)")
+        let GPSdataArray = GPSData.components(separatedBy: ",")
+        let GPSSecdataArray = GPSSecData.components(separatedBy: "_")
+        
+        guard (GPSdataArray.count == 2 && GPSSecData.count == 2) else {
+            print("GPSData corrupted: \(GPSData)")
+            return
+        }
+        
+        let lat = GPSdataArray[0]
+        let long = GPSSecdataArray[0]
+        let alt = GPSdataArray[1]
+        let time = String(Int(NSDate().timeIntervalSince1970))
+        
     }
 }
 
