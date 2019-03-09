@@ -56,7 +56,7 @@ final class DataManager {
         let dataArray = data.components(separatedBy: ";")
         
         // assert that data is _;_ else it may be secondary gps string
-        guard dataArray.count > 2 else {
+        guard dataArray.count == 2 else {
             if (data.first == "g") {
                 guard let GPSData = prevGPSData else { return }
                 prevGPSData = nil
