@@ -53,6 +53,7 @@ final class DataManager {
     func parseRawData(data: String) {
         // assume it follows format
         print("raw data is \(data)")
+        print("the number of characters is \(data.count)")
         let dataArray = data.components(separatedBy: ";")
         
         // assert that data is _;_ else it may be secondary gps string
@@ -86,15 +87,16 @@ final class DataManager {
             break
         
         default:
-            print("error in parsing data")
-            print("the unparsable data is \(data)")
+            break
+//            print("error in parsing data")
+//            print("the unparsable data is \(data)")
             
         }
         
     }
     
     fileprivate func parseBMSData(BMSData: String, BMSTime: String) {
-        print("parsing BMS Data: \(BMSData)")
+//        print("parsing BMS Data: \(BMSData)")
         let dataArray = BMSData.components(separatedBy: "_")
         
         guard (dataArray.count == 3) else {
@@ -127,7 +129,7 @@ final class DataManager {
     }
     
     fileprivate func parseWheelData(wheelData: String) {
-        print("parsing wheel Data: \(wheelData)")
+//        print("parsing wheel Data: \(wheelData)")
         let dataArray = wheelData.components(separatedBy: "_")
         
         guard (dataArray.count == 2) else {
@@ -140,7 +142,7 @@ final class DataManager {
         
     }
     fileprivate func parseGPSData(GPSData: String, GPSSecData: String) {
-        print("parsing gps data: \(GPSData)")
+//        print("parsing gps data: \(GPSData)")
     }
 }
 

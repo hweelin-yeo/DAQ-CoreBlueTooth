@@ -92,8 +92,6 @@ extension DisplayViewController: CBCentralManagerDelegate {
     // STEP 15: when a peripheral disconnects, take
     // use-case-appropriate action
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
- 
-        SCLAlertView().showInfo("Error", subTitle: "Bluefruit Disconnected")
         print("Disconnected!")
         
         
