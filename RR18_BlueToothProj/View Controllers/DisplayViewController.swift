@@ -36,6 +36,7 @@ class DisplayViewController: UIViewController {
     // MARK: Managers
     var bluetoothManager = RRBluetoothManager()
     var networkRequestManager = NetworkRequestManager()
+    var networkManager = NetworkManager()
     var dataManager = DataManager()
     
     // MARK: Data
@@ -165,25 +166,34 @@ extension DisplayViewController {
         
         if stopwatch.startStopWatch == true {
             
-            //get runID
-            networkRequestManager.makeGetRequest(url: networkRequestManager.baseUrl + "/getRunID")
-            
             let timeInterval = NSDate().timeIntervalSince1970.description
+            let date = NSDate().description
+            print ("the date is \(date)")
             
-            let runName = date()
-            let para = ["timestamp": timeInterval , "runID": "gh".self,"runName":runName ] as [String : Any]
-            
-            //start Run
-            networkRequestManager.makePostRequest(url: networkRequestManager.baseUrl + "/startRun", parameters: para as! [String : String])
-            
-            //end Run
-            networkRequestManager.makePostRequest(url: networkRequestManager.baseUrl + "/endRun", parameters: para as! [String : String])
-            
-            //startLap
-            networkRequestManager.makePostRequest(url: networkRequestManager.baseUrl + "/startLap", parameters: para as! [String : String])
-            
-            //endLap
-            networkRequestManager.makePostRequest(url: networkRequestManager.baseUrl + "/endLap", parameters: para as! [String : String])
+            //get runID
+            networkManager.getLatestRunID { (runid, error) in
+                
+                guard let runid = runid else {
+                    guard let error = error else { return }
+                    print ("error in getting latest runid \(error)")
+                    return
+                }
+                
+                guard let runIDInt = Int(runid) else {
+                    print ("error occured: runid is not an int")
+                    return
+                }
+                
+                self.dataManager.setRunID(id: runIDInt + 1)
+                self.dataManager.setRunName(name: "\(date) + \(runIDInt)")
+                
+                guard let runID = self.dataManager.getRunID() else { return }
+                let runIDString = String(runID)
+                
+                self.networkManager.startRun(time: timeInterval, id: runIDString, name: self.dataManager.getRunName() ?? "run unnamed", completion: { (_, _) in
+                    print("post request for start run completed")
+                })
+            }
             
             //timer
             stopwatch.timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateStopwatch), userInfo: nil, repeats: true)

@@ -16,12 +16,9 @@ struct OtherData {
     
 }
 
-struct runID {
-    var runID = 1;
-//    if (endLap is posted){
-//        runID += 1;
-//    }
-    
+struct RunData {
+    var runID: Int?
+    var runName: String?
 }
 
 protocol DataManagerDelegate: class {
@@ -35,8 +32,23 @@ final class DataManager {
     fileprivate var prevBMSData: String?
     fileprivate var prevGPSData: String?
     fileprivate var wheelTruncatedTimeStamp: String?
+    var runData: RunData = RunData()
     
-
+    func getRunID() -> Int? {
+        return runData.runID
+    }
+    
+    func getRunName() -> String? {
+        return runData.runName
+    }
+    
+    func setRunID(id: Int) {
+        runData.runID = id
+    }
+    
+    func setRunName(name: String) {
+        runData.runName = name
+    }
     
     func parseRawData(data: String) {
         // assume it follows format
