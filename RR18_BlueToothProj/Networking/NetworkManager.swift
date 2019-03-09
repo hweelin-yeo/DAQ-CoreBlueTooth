@@ -183,7 +183,7 @@ struct NetworkManager {
     
     func updateWheel(time: String, rpm: String) {
         
-        router.request(.updateWheel(time: time, rpm: rpm) { data, response, error in
+        router.request(.updateWheel(time: time, rpm: rpm)) { data, response, error in
             if error != nil {
                 print("Check network connection")
             }
