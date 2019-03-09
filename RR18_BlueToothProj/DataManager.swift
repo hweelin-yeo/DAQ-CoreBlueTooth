@@ -48,7 +48,11 @@ final class DataManager {
     func getRunName() -> String? {
         return runData.runName
     }
-    
+//
+//    func getNexRunID() -> Int? {
+//        return setRunID(id: Int(getRunIDString())+1)
+//    }
+//
     func setRunID(id: Int) {
         runData.runID = id
     }
