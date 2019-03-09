@@ -169,10 +169,8 @@ extension DisplayViewController {
         
         if stopwatch.startStopWatch == true {
             
-            let timeInterval = NSDate().timeIntervalSince1970.description
-            
+            let timeInterval = String(Int(NSDate().timeIntervalSince1970))
             let date = dateFormatter.string(from: NSDate() as Date)
-            print ("the date is \(date)")
             
             //get runID
             networkManager.getLatestRunID { (runid, error) in
@@ -189,7 +187,7 @@ extension DisplayViewController {
                 }
                 
                 self.dataManager.setRunID(id: runIDInt + 1)
-                self.dataManager.setRunName(name: "\(date) + \(runIDInt)")
+                self.dataManager.setRunName(name: "\(date) Run No. \(runIDInt)")
                 
                 guard let runIDString = self.dataManager.getRunIDString() else { return }
                 
@@ -243,10 +241,18 @@ extension DisplayViewController {
     @IBAction func lapReset(_ sender: AnyObject) {
         
         if stopwatch.addLap == true {
-            let timeInterval = NSDate().timeIntervalSince1970.description
+            
+            //start lap of one lap = the end lap of another
+            let timeInterval = String(Int(NSDate().timeIntervalSince1970))
             guard let runIDString = self.dataManager.getRunIDString() else { return }
             
-            networkManager.startLap(time: timeInterval, id: runIDString, name: self.dataManager.getRunName() ?? "run unnamed", lapID: self.dataManager.getRunIDString() ?? "run not int")
+            networkManager.endLap(time: String(timeInterval), id: runIDString, name: self.dataManager.getRunName() ?? "run unnamed", lapID: self.dataManager.getRunIDString() ?? "run not int")
+            print("end lap")
+            
+            
+            //should be the same as information of end lap but the 
+//            networkManager.startLap(time: timeInterval, id: runIDString, name: self.dataManager.getRunName() ?? "run unnamed", lapID: self.dataManager.getRunIDString()+1 ?? "run not int")
+//            print("start lap")
             
             laps.insert(stopwatch.stopwatchString, at:0)
             lapsTableView.reloadData()
