@@ -34,8 +34,9 @@ final class DataManager {
     fileprivate var wheelTruncatedTimeStamp: String?
     var runData: RunData = RunData()
     
-    func getRunID() -> Int? {
-        return runData.runID
+    func getRunIDString() -> String? {
+        guard let runID = runData.runID else { return nil }
+        return String(runID)
     }
     
     func getRunName() -> String? {
