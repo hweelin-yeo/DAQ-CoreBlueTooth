@@ -458,7 +458,7 @@
 				DEVELOPMENT_TEAM = 4DXST3Z9LY;
 				INFOPLIST_FILE = RR18_BlueToothProj/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.appcoda.Resistance-Racing";
+				PRODUCT_BUNDLE_IDENTIFIER = com.appcoda.ResistanceRacing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -472,7 +472,7 @@
 				DEVELOPMENT_TEAM = 4DXST3Z9LY;
 				INFOPLIST_FILE = RR18_BlueToothProj/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.appcoda.Resistance-Racing";
+				PRODUCT_BUNDLE_IDENTIFIER = com.appcoda.ResistanceRacing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

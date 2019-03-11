@@ -16,12 +16,9 @@ struct OtherData {
     
 }
 
-struct runID {
-    var runID = 1;
-//    if (endLap is posted){
-//        runID += 1;
-//    }
-    
+struct RunData {
+    var runID: Int?
+    var runName: String?
 }
 
 protocol DataManagerDelegate: class {
@@ -35,16 +32,43 @@ final class DataManager {
     fileprivate var prevBMSData: String?
     fileprivate var prevGPSData: String?
     fileprivate var wheelTruncatedTimeStamp: String?
+    var runData: RunData = RunData()
     
-
+    let dateFormatter = DateFormatter()
+    
+    init() {
+        dateFormatter.dateStyle = .full
+    }
+    
+    func getRunIDString() -> String? {
+        guard let runID = runData.runID else { return nil }
+        return String(runID)
+    }
+    
+    func getRunName() -> String? {
+        return runData.runName
+    }
+//
+//    func getNexRunID() -> Int? {
+//        return setRunID(id: Int(getRunIDString())+1)
+//    }
+//
+    func setRunID(id: Int) {
+        runData.runID = id
+    }
+    
+    func setRunName(name: String) {
+        runData.runName = name
+    }
     
     func parseRawData(data: String) {
         // assume it follows format
         print("raw data is \(data)")
+        print("the number of characters is \(data.count)")
         let dataArray = data.components(separatedBy: ";")
         
         // assert that data is _;_ else it may be secondary gps string
-        guard dataArray.count > 2 else {
+        guard dataArray.count == 2 else {
             if (data.first == "g") {
                 guard let GPSData = prevGPSData else { return }
                 prevGPSData = nil
@@ -62,9 +86,10 @@ final class DataManager {
             prevBMSData = dataValue
             break
         case "bt":
+            let timeInterval = String(Int(NSDate().timeIntervalSince1970))
             guard let bmsData = prevBMSData else { return }
             prevBMSData = nil
-            parseBMSData(BMSData: bmsData, BMSTime: dataValue)
+            parseBMSData(BMSData: bmsData, BMSTime: timeInterval)
             break
         case "w":
             parseWheelData(wheelData: dataValue)
@@ -74,15 +99,16 @@ final class DataManager {
             break
         
         default:
-            print("error in parsing data")
-            print("the unparsable data is \(data)")
+            break
+//            print("error in parsing data")
+//            print("the unparsable data is \(data)")
             
         }
         
     }
     
     fileprivate func parseBMSData(BMSData: String, BMSTime: String) {
-        print("parsing BMS Data: \(BMSData)")
+//        print("parsing BMS Data: \(BMSData)")
         let dataArray = BMSData.components(separatedBy: "_")
         
         guard (dataArray.count == 3) else {
@@ -96,26 +122,24 @@ final class DataManager {
         }
         
         guard dataArray[1].first == "T" else {
-            print("BMSData corrupted at 'C': \(BMSData)")
+            print("BMSData corrupted at 'T': \(BMSData)")
             return
         }
         
         guard dataArray[2].first == "P" else {
-            print("BMSData corrupted at 'C': \(BMSData)")
+            print("BMSData corrupted at 'P': \(BMSData)")
             return
         }
         
         let capacityRemaining = dataArray[0].dropFirst()
         let peakTemperature = dataArray[1].dropFirst()
         let powerConsumption = dataArray[2].dropFirst()
-        let time = BMSTime
-        
-        
+        let time = String(Int(NSDate().timeIntervalSince1970))
         
     }
     
     fileprivate func parseWheelData(wheelData: String) {
-        print("parsing wheel Data: \(wheelData)")
+//        print("parsing wheel Data: \(wheelData)")
         let dataArray = wheelData.components(separatedBy: "_")
         
         guard (dataArray.count == 2) else {
@@ -128,7 +152,19 @@ final class DataManager {
         
     }
     fileprivate func parseGPSData(GPSData: String, GPSSecData: String) {
-        print("parsing gps data: \(GPSData)")
+        let GPSdataArray = GPSData.components(separatedBy: ",")
+        let GPSSecdataArray = GPSSecData.components(separatedBy: "_")
+        
+        guard (GPSdataArray.count == 2 && GPSSecData.count == 2) else {
+            print("GPSData corrupted: \(GPSData)")
+            return
+        }
+        
+        let lat = GPSdataArray[0]
+        let long = GPSSecdataArray[0]
+        let alt = GPSdataArray[1]
+        let time = String(Int(NSDate().timeIntervalSince1970))
+        
     }
 }
 

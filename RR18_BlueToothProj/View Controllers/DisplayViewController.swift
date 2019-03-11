@@ -28,7 +28,7 @@ class DisplayViewController: UIViewController {
     @IBOutlet weak var lapNumberLabel: UILabel!
     @IBOutlet weak var lapCountNumber: UILabel!
     
-   
+    
     @IBOutlet weak var peripheralView: UIView!
     @IBOutlet weak var bluetoothOnView: UIView!
     
@@ -36,10 +36,12 @@ class DisplayViewController: UIViewController {
     // MARK: Managers
     var bluetoothManager = RRBluetoothManager()
     var networkRequestManager = NetworkRequestManager()
+    var networkManager = NetworkManager()
     var dataManager = DataManager()
     
     // MARK: Data
     var laps: [String] = []
+    let dateFormatter = DateFormatter()
     
     var stopwatch: Stopwatch = Stopwatch()
     
@@ -55,13 +57,15 @@ class DisplayViewController: UIViewController {
         bluetoothManager.setCentralManagerDelegate(delegate: self)
         checkIfAlreadyPoweredOn()
         
-    
+        dateFormatter.dateStyle = .full
+        
+        
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap(sender:)))
         
         // Optionally set the number of required taps, e.g., 2 for a double click
         tapGestureRecognizer.numberOfTapsRequired = 2
         sideTouchView.isUserInteractionEnabled = true
-    sideTouchView.addGestureRecognizer(tapGestureRecognizer)
+        sideTouchView.addGestureRecognizer(tapGestureRecognizer)
     }
     
     override func didReceiveMemoryWarning() {
@@ -165,25 +169,34 @@ extension DisplayViewController {
         
         if stopwatch.startStopWatch == true {
             
+            let timeInterval = String(Int(NSDate().timeIntervalSince1970))
+            let date = dateFormatter.string(from: NSDate() as Date)
+            
             //get runID
-            networkRequestManager.makeGetRequest(url: networkRequestManager.baseUrl + "/getRunID")
+            networkManager.getLatestRunID { (runid, error) in
+                
+                guard let runid = runid else {
+                    guard let error = error else { return }
+                    print ("error in getting latest runid \(error)")
+                    return
+                }
+                
+                guard let runIDInt = Int(runid) else {
+                    print ("error occured: runid is not an int")
+                    return
+                }
+                
+                self.dataManager.setRunID(id: runIDInt + 1)
+                self.dataManager.setRunName(name: "\(date) Run No. \(runIDInt)")
+                
+                guard let runIDString = self.dataManager.getRunIDString() else { return }
+                
+                //start run
+                self.networkManager.startRun(time: timeInterval, id: runIDString, name: self.dataManager.getRunName() ?? "run unnamed", completion: { (_, _) in
+                    print("post request for start run completed")})
+                
+            }
             
-            let timeInterval = NSDate().timeIntervalSince1970.description
-            
-            let runName = date()
-            let para = ["timestamp": timeInterval , "runID": "gh".self,"runName":runName ] as [String : Any]
-            
-            //start Run
-            networkRequestManager.makePostRequest(url: networkRequestManager.baseUrl + "/startRun", parameters: para as! [String : String])
-            
-            //end Run
-            networkRequestManager.makePostRequest(url: networkRequestManager.baseUrl + "/endRun", parameters: para as! [String : String])
-            
-            //startLap
-            networkRequestManager.makePostRequest(url: networkRequestManager.baseUrl + "/startLap", parameters: para as! [String : String])
-            
-            //endLap
-            networkRequestManager.makePostRequest(url: networkRequestManager.baseUrl + "/endLap", parameters: para as! [String : String])
             
             //timer
             stopwatch.timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateStopwatch), userInfo: nil, repeats: true)
@@ -192,11 +205,14 @@ extension DisplayViewController {
             stopwatch.startStopWatch = false
             
             startStopButton.setImage(UIImage(named:"stop.png"),for: UIControl.State.normal)
-        lapresetButton.setImage(UIImage(named:"lap.png"),for:UIControl.State.normal)
+            lapresetButton.setImage(UIImage(named:"lap.png"),for:UIControl.State.normal)
             
             stopwatch.addLap = true
             
-        } else{
+            
+            
+        } else{ //stop
+            
             stopwatch.timer.invalidate()
             stopwatch.startStopWatch = true
             
@@ -205,7 +221,13 @@ extension DisplayViewController {
             
             stopwatch.addLap = false
             
+            let timeInterval = NSDate().timeIntervalSince1970.description
+            
+            guard let runIDString = self.dataManager.getRunIDString() else { return }
+            
+            self.networkManager.endRun(time: timeInterval, id: runIDString, name: self.dataManager.getRunName() ?? "run unnamed")
         }
+        
     }
     
     func didTap(sender: UITapGestureRecognizer) {
@@ -215,10 +237,22 @@ extension DisplayViewController {
         lapsTableView.reloadData()
         lapCountNumber.text = String(laps.count)
     }
-
+    
     @IBAction func lapReset(_ sender: AnyObject) {
         
         if stopwatch.addLap == true {
+            
+            //start lap of one lap = the end lap of another
+            let timeInterval = String(Int(NSDate().timeIntervalSince1970))
+            guard let runIDString = self.dataManager.getRunIDString() else { return }
+            
+            networkManager.endLap(time: String(timeInterval), id: runIDString, name: self.dataManager.getRunName() ?? "run unnamed", lapID: self.dataManager.getRunIDString() ?? "run not int")
+            print("end lap")
+            
+            
+            //should be the same as information of end lap but the 
+//            networkManager.startLap(time: timeInterval, id: runIDString, name: self.dataManager.getRunName() ?? "run unnamed", lapID: self.dataManager.getRunIDString()+1 ?? "run not int")
+//            print("start lap")
             
             laps.insert(stopwatch.stopwatchString, at:0)
             lapsTableView.reloadData()
