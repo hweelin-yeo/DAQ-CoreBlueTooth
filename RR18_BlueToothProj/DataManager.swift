@@ -8,14 +8,6 @@
 
 import Foundation
 
-struct BMSData {
-    
-}
-
-struct OtherData {
-    
-}
-
 struct RunData {
     var runID: Int?
     var runName: String?
