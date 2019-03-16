@@ -30,6 +30,8 @@ final class DataManager {
     fileprivate var prevBMSData: String?
     fileprivate var prevGPSData: String?
     fileprivate var wheelTruncatedTimeStamp: String?
+    fileprivate var unparseable: String = ""
+    
     var runData: RunData = RunData()
     var lapData: LapData = LapData()
     
@@ -73,6 +75,22 @@ final class DataManager {
     
     func setRunName(name: String) {
         runData.runName = name
+    }
+    
+    func parseClumped() {
+        let dataArray = unparseable.components(separatedBy: ";")
+        guard (dataArray.count > 3) else { return } // unparseable datastring not long enough
+        guard let firstSemiIndex = unparseable.firstIndex(of: ";") else { return }
+        let start = firstSemiIndex.encodedOffset - 1
+        guard let secondSemiIndex = unparseable.substring(from: firstSemiIndex).dropFirst().firstIndex(of: ";") else { return }
+        let end = secondSemiIndex.encodedOffset + 2
+        let beforeEnd = end - 1
+        
+        let data = unparseable[start..<end]
+//        unparseable = unparseable[...beforeEnd]
+        parseRawData(data: data)
+        
+        parseClumped()
     }
     
     func parseRawData(data: String) {
