@@ -32,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		243C13C5DC9DF4A73CC4FB9A /* Pods-RR18_BlueToothProj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RR18_BlueToothProj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RR18_BlueToothProj/Pods-RR18_BlueToothProj.debug.xcconfig"; sourceTree = "<group>"; };
+		71253DE12239D7E9009FB280 /* RR18_BlueToothProj.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RR18_BlueToothProj.entitlements; sourceTree = "<group>"; };
 		BA08C5C022188FB30034603F /* DisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayViewController.swift; sourceTree = "<group>"; };
 		BA08C5C422188FBF0034603F /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop.png; sourceTree = "<group>"; };
 		BA08C5C522188FBF0034603F /* lap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lap.png; sourceTree = "<group>"; };
@@ -122,6 +123,7 @@
 		BAAA37FE2169586D00E2CC95 = {
 			isa = PBXGroup;
 			children = (
+				71253DE12239D7E9009FB280 /* RR18_BlueToothProj.entitlements */,
 				BAAA38092169586D00E2CC95 /* RR18_BlueToothProj */,
 				BAAA38082169586D00E2CC95 /* Products */,
 				1B66D61ED49B00E38A340262 /* Pods */,
@@ -225,6 +227,29 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 4DXST3Z9LY;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.DataProtection = {
+								enabled = 0;
+							};
+							com.apple.HealthKit = {
+								enabled = 0;
+							};
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+							com.apple.WAC = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -455,11 +480,14 @@
 			baseConfigurationReference = 243C13C5DC9DF4A73CC4FB9A /* Pods-RR18_BlueToothProj.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4DXST3Z9LY;
 				INFOPLIST_FILE = RR18_BlueToothProj/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appcoda.ResistanceRacing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -469,11 +497,14 @@
 			baseConfigurationReference = D2A4FAE92B9B2C75B071F35D /* Pods-RR18_BlueToothProj.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4DXST3Z9LY;
 				INFOPLIST_FILE = RR18_BlueToothProj/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appcoda.ResistanceRacing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

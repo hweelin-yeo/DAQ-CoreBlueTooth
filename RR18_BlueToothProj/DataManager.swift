@@ -8,21 +8,20 @@
 
 import Foundation
 
-struct BMSData {
-    
-}
-
-struct OtherData {
-    
-}
-
 struct RunData {
     var runID: Int?
     var runName: String?
+    
+}
+
+struct LapData{
+    var lapNo = 0
 }
 
 protocol DataManagerDelegate: class {
-    func updateBMSUI()
+    func updateWheel(rev: String, time: String)
+    func updateGPS(lat: String, long: String, alt: String, time: String)
+    func updateBMS(capRem: String, peakTemp: String, powerConsump: String, time: String)
 }
 
 final class DataManager {
@@ -33,6 +32,7 @@ final class DataManager {
     fileprivate var prevGPSData: String?
     fileprivate var wheelTruncatedTimeStamp: String?
     var runData: RunData = RunData()
+    var lapData: LapData = LapData()
     
     let dateFormatter = DateFormatter()
     
@@ -40,19 +40,34 @@ final class DataManager {
         dateFormatter.dateStyle = .full
     }
     
+    //get Run Info
+    func getRunIDInt() -> Int?{
+        guard let runID = runData.runID else { return nil }
+        return runID
+    }
     func getRunIDString() -> String? {
         guard let runID = runData.runID else { return nil }
         return String(runID)
     }
-    
     func getRunName() -> String? {
         return runData.runName
     }
-//
-//    func getNexRunID() -> Int? {
-//        return setRunID(id: Int(getRunIDString())+1)
-//    }
-//
+    
+    //Lap Info
+    func getLapID() -> Int {
+        return lapData.lapNo
+    }
+
+    func getLapIDStr() -> String{
+        return String(lapData.lapNo)
+    }
+    
+    func incrementLapNo() {
+        lapData.lapNo += 1
+    }
+    
+    
+    //setting functions
     func setRunID(id: Int) {
         runData.runID = id
     }
@@ -136,6 +151,9 @@ final class DataManager {
         let powerConsumption = dataArray[2].dropFirst()
         let time = String(Int(NSDate().timeIntervalSince1970))
         
+        delegate?.updateBMS(capRem: String(capacityRemaining), peakTemp: String(peakTemperature), powerConsump: String(powerConsumption), time: time)
+        
+        
     }
     
     fileprivate func parseWheelData(wheelData: String) {
@@ -147,9 +165,10 @@ final class DataManager {
             return
         }
         
-//        let revolution = dataArray[0]
-//        let time = dataArray[1]
+        let revolution = dataArray[0]
+        let time = dataArray[1]
         
+        delegate?.updateWheel(rev: revolution, time: time)
     }
     fileprivate func parseGPSData(GPSData: String, GPSSecData: String) {
         let GPSdataArray = GPSData.components(separatedBy: ",")
@@ -164,6 +183,8 @@ final class DataManager {
         let long = GPSSecdataArray[0]
         let alt = GPSdataArray[1]
         let time = String(Int(NSDate().timeIntervalSince1970))
+        
+        delegate?.updateGPS(lat: lat, long: long, alt: alt, time: time)
         
     }
 }

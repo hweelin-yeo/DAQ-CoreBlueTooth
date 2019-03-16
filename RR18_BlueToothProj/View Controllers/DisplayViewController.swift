@@ -55,14 +55,17 @@ class DisplayViewController: UIViewController {
         setupDataManager()
         setupNetworkRequestManager()
         bluetoothManager.setCentralManagerDelegate(delegate: self)
+        dataManager.delegate = self
         checkIfAlreadyPoweredOn()
         
         dateFormatter.dateStyle = .full
         
+        testNetworkRequestData()
+        
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap(sender:)))
         
-        // Optionally set the number of required taps, e.g., 2 for a double click
+        // Set the number of required taps=2 for a double click
         tapGestureRecognizer.numberOfTapsRequired = 2
         sideTouchView.isUserInteractionEnabled = true
         sideTouchView.addGestureRecognizer(tapGestureRecognizer)
@@ -105,6 +108,9 @@ extension DisplayViewController {
         self.sNum.layer.cornerRadius = sNum.frame.size.height/2
         sNum.clipsToBounds = true
         sNum.textAlignment = .center
+        
+        
+        
     }
     
     func setupFuelEffComponent() {
@@ -167,9 +173,13 @@ extension DisplayViewController {
     
     @IBAction func startStop(_ sender:AnyObject) {
         
+        let timeInterval = Int(NSDate().timeIntervalSince1970)
+        let timeIntervalDelayed = timeInterval + 1
+        let timeIntervalString = String(timeInterval)
+        
         if stopwatch.startStopWatch == true {
             
-            let timeInterval = String(Int(NSDate().timeIntervalSince1970))
+        
             let date = dateFormatter.string(from: NSDate() as Date)
             
             //get runID
@@ -188,12 +198,18 @@ extension DisplayViewController {
                 
                 self.dataManager.setRunID(id: runIDInt + 1)
                 self.dataManager.setRunName(name: "\(date) Run No. \(runIDInt)")
+                self.dataManager.incrementLapNo()
                 
                 guard let runIDString = self.dataManager.getRunIDString() else { return }
                 
                 //start run
-                self.networkManager.startRun(time: timeInterval, id: runIDString, name: self.dataManager.getRunName() ?? "run unnamed", completion: { (_, _) in
+                self.networkManager.startRun(time: timeIntervalString, id: runIDString, name: self.dataManager.getRunName() ?? "run unnamed", completion: { (_, _) in
                     print("post request for start run completed")})
+                
+                self.networkManager.startLap(time: String(timeIntervalDelayed), id: runIDString, name: self.dataManager.getRunName() ?? "run unnamed", lapID: self.dataManager.getLapIDStr())
+                
+                print("started lap 1")
+                
                 
             }
             
@@ -209,6 +225,8 @@ extension DisplayViewController {
             
             stopwatch.addLap = true
             
+            //add lapid
+            
             
             
         } else{ //stop
@@ -221,11 +239,12 @@ extension DisplayViewController {
             
             stopwatch.addLap = false
             
-            let timeInterval = NSDate().timeIntervalSince1970.description
-            
             guard let runIDString = self.dataManager.getRunIDString() else { return }
             
-            self.networkManager.endRun(time: timeInterval, id: runIDString, name: self.dataManager.getRunName() ?? "run unnamed")
+            networkManager.endLap(time: timeIntervalString, id: runIDString, name: self.dataManager.getRunName() ?? "run unnamed", lapID: self.dataManager.getLapIDStr())
+            print("end current lap")
+            
+            self.networkManager.endRun(time: String(timeIntervalDelayed), id: runIDString, name: self.dataManager.getRunName() ?? "run unnamed")
         }
         
     }
@@ -243,20 +262,34 @@ extension DisplayViewController {
         if stopwatch.addLap == true {
             
             //start lap of one lap = the end lap of another
-            let timeInterval = String(Int(NSDate().timeIntervalSince1970))
+            let timeInterval = Int(NSDate().timeIntervalSince1970)
+            let timeIntervalDelayed = timeInterval + 1
+            let timeIntervalString = String(timeInterval)
+            
             guard let runIDString = self.dataManager.getRunIDString() else { return }
             
-            networkManager.endLap(time: String(timeInterval), id: runIDString, name: self.dataManager.getRunName() ?? "run unnamed", lapID: self.dataManager.getRunIDString() ?? "run not int")
-            print("end lap")
+            //start lap will be current lap
             
+            //end current lap
             
-            //should be the same as information of end lap but the 
-//            networkManager.startLap(time: timeInterval, id: runIDString, name: self.dataManager.getRunName() ?? "run unnamed", lapID: self.dataManager.getRunIDString()+1 ?? "run not int")
-//            print("start lap")
+            networkManager.endLap(time: timeIntervalString, id: runIDString, name: self.dataManager.getRunName() ?? "run unnamed", lapID: self.dataManager.getLapIDStr())
+            print("end current lap")
+            
+            //start current lap
+            dataManager.incrementLapNo()
+            //should be the same as information of end lap but different lap number
+            networkManager.startLap(time: String(timeIntervalDelayed), id: runIDString, name: self.dataManager.getRunName() ?? "run unnamed", lapID: dataManager.getLapIDStr())
+            print("started next lap\(dataManager.getLapID())")
+            
             
             laps.insert(stopwatch.stopwatchString, at:0)
             lapsTableView.reloadData()
             lapCountNumber.text = String(laps.count)
+            
+            
+            //BMSData
+            //GPS
+            //Wheel
             
         } else{
             stopwatch.addLap = false

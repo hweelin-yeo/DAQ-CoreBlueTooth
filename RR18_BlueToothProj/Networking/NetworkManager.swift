@@ -63,6 +63,8 @@ struct NetworkManager {
         }
     }
     
+    
+    
     func startRun(time: String, id: String, name: String, completion: @escaping (_ res: String?, _ error: String?) ->()) {
         
         router.request(.startRun(time: time, id: id, name: name)) { data, response, error in
@@ -115,10 +117,10 @@ struct NetworkManager {
                 let result = self.handleNetworkResponse(response)
                 switch result {
                 case .success:
-                    print("success at starting run")
+                    print("success at starting lap")
                     
                 case .failure(let networkFailureError):
-                    print ("failure at starting run with error \(networkFailureError)")
+                    print ("failure at starting lap with error \(networkFailureError)")
                 }
             }
         }
