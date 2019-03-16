@@ -97,6 +97,10 @@ final class DataManager {
         // assume it follows format
         print("raw data is \(data)")
         print("the number of characters is \(data.count)")
+        print("printing out the characters")
+        for char in str { print("the character is \(char)") }
+        print("stopped printing out the characters")
+
         let dataArray = data.components(separatedBy: ";")
         
         // assert that data is _;_ else it may be secondary gps string
