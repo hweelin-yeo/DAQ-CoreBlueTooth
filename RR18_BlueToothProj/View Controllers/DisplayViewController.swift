@@ -35,7 +35,6 @@ class DisplayViewController: UIViewController {
     
     // MARK: Managers
     var bluetoothManager = RRBluetoothManager()
-    var networkRequestManager = NetworkRequestManager()
     var networkManager = NetworkManager()
     var dataManager = DataManager()
     
@@ -53,7 +52,6 @@ class DisplayViewController: UIViewController {
         setupLapButton()
         
         setupDataManager()
-        setupNetworkRequestManager()
         bluetoothManager.setCentralManagerDelegate(delegate: self)
         dataManager.delegate = self
         checkIfAlreadyPoweredOn()

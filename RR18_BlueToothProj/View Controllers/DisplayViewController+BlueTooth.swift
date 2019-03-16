@@ -168,15 +168,7 @@ extension DisplayViewController: CBPeripheralDelegate {
 }
 
 // MARK: - Network Request Manager
-extension DisplayViewController: NetworkRequestHandlerDelegate {
-    
-    func setupNetworkRequestManager() {
-        networkRequestManager.delegate = self
-    }
-    
-    func handleFetchedData(response: String) {
-        
-    }
+extension DisplayViewController {
     
     
     func testNetworkRequestData() {

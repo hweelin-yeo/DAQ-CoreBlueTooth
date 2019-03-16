@@ -25,8 +25,7 @@ protocol DataManagerDelegate: class {
 }
 
 final class DataManager {
-    
-    
+
     weak var delegate: DataManagerDelegate?
     fileprivate var prevBMSData: String?
     fileprivate var prevGPSData: String?
