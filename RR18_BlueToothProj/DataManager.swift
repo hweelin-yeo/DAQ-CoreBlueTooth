@@ -78,16 +78,17 @@ final class DataManager {
     }
     
     func parseClumped() {
+        
         let dataArray = unparseable.components(separatedBy: ";")
         guard (dataArray.count > 3) else { return } // unparseable datastring not long enough
         guard let firstSemiIndex = unparseable.firstIndex(of: ";") else { return }
         let start = firstSemiIndex.encodedOffset - 1
         guard let secondSemiIndex = unparseable.substring(from: firstSemiIndex).dropFirst().firstIndex(of: ";") else { return }
         let end = secondSemiIndex.encodedOffset + 2
-        let beforeEnd = end - 1
+        let beforeEndIndex = str.index(str.startIndex, offsetBy: end - 1)
         
         let data = unparseable[start..<end]
-//        unparseable = unparseable[...beforeEnd]
+        unparseable = unparseable[...beforeEndIndex]
         parseRawData(data: data)
         
         parseClumped()
