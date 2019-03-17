@@ -26,6 +26,7 @@ protocol DataManagerDelegate: class {
 
 final class DataManager {
 
+    // MARK: Data
     weak var delegate: DataManagerDelegate?
     fileprivate var prevBMSData: String?
     fileprivate var prevGPSData: String?
@@ -41,7 +42,13 @@ final class DataManager {
         dateFormatter.dateStyle = .full
     }
     
-    //get Run Info
+}
+
+// MARK: - Run and Lap Data
+extension DataManager {
+    
+    // MARK: Run Info
+    
     func getRunIDInt() -> Int?{
         guard let runID = runData.runID else { return nil }
         return runID
@@ -54,7 +61,8 @@ final class DataManager {
         return runData.runName
     }
     
-    //Lap Info
+    // MARK: Lap Info
+    
     func getLapID() -> Int {
         return lapData.lapNo
     }
@@ -67,8 +75,6 @@ final class DataManager {
         lapData.lapNo += 1
     }
     
-    
-    //setting functions
     func setRunID(id: Int) {
         runData.runID = id
     }
@@ -76,7 +82,10 @@ final class DataManager {
     func setRunName(name: String) {
         runData.runName = name
     }
-    
+}
+
+// MARK: - Data Parsing
+extension DataManager {
     func parseClumped() {
         
         let dataArray = unparseable.components(separatedBy: ";")
