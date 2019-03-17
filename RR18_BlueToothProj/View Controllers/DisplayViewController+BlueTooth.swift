@@ -12,8 +12,23 @@ import CoreBluetooth
 
 // MARK: - DataManagerDelegate
 extension DisplayViewController: DataManagerDelegate {
-    func updateBMSUI() {
-        // implement
+    func updateWheel(rev: String, time: String) {
+        // diameter of wheel = 0.5m
+        let circumference = (Double.pi * 0.5) * 3.28084
+        guard let intRev = Int(rev) else { return }
+        let speed = round(circumference * Double(intRev) / 88)
+        
+        sNum.text = String(speed)
+        //later update using gps
+        networkManager.updateWheel(time: rev, rpm: time)
+    }
+    
+    func updateGPS(lat: String, long: String, alt: String, time: String) {
+        networkManager.updateGPS(time: time, lat: lat, long: long)
+    }
+    
+    func updateBMS(capRem: String, peakTemp: String, powerConsump: String, time: String) {
+        networkManager.updateBMS(time: time, batLvl: capRem, batTemp: peakTemp, powerCons: powerConsump)
     }
     
     
@@ -50,12 +65,12 @@ extension DisplayViewController: CBCentralManagerDelegate {
             print("Bluetooth status is SWITCHED ON")
             central.scanForPeripherals(withServices: [bluetoothManager.bleUUID], options: nil)
             
-        DispatchQueue.main.async { () -> Void in
+            DispatchQueue.main.async { () -> Void in
                 self.bluetoothOnView.backgroundColor = .green
             }
             
         default:
-        
+            
             DispatchQueue.main.async { () -> Void in
                 self.bluetoothOnView.backgroundColor = .red
                 self.peripheralView.backgroundColor = .red
@@ -121,9 +136,9 @@ extension DisplayViewController: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         
         guard let characteristics = service.characteristics else { return }
-
+        
         for characteristic in characteristics {
-           
+            
             // uuid for bluefruit's data characteristic
             if characteristic.uuid.uuidString == "6E400003-B5A3-F393-E0A9-E50E24DCCA9E" {
                 peripheral.readValue(for: characteristic)
@@ -153,22 +168,27 @@ extension DisplayViewController: CBPeripheralDelegate {
 }
 
 // MARK: - Network Request Manager
-extension DisplayViewController: NetworkRequestHandlerDelegate {
+extension DisplayViewController {
     
-    func setupNetworkRequestManager() {
-        networkRequestManager.delegate = self
-    }
     
-    func handleFetchedData(response: String) {
+    func testNetworkRequestData() {
+        updateWheel(rev: "2394", time: "15323248239")
         
-    }
-    
-    
-    func testAlamofire() {
-        networkRequestManager.makeGetRequest(url: "https://jsonplaceholder.typicode.com/posts/1")
-        networkRequestManager.makePostRequest(url: "https://jsonplaceholder.typicode.com/posts", parameters: ["title" : "foo",
-                                                                                                              "body" : "bar",
-                                                                                                              "userId": "1 "])
-    }
-}
+        updateGPS(lat: "4226.619N", long: "4623.874W", alt: "184.1", time: "12323456")
+        
+        updateBMS(capRem: "90", peakTemp: "50", powerConsump: "45", time: "23148727")
+        
+        updateWheel(rev: "2394", time: "1532482339")
+        
+        updateGPS(lat: "4226.619N", long: "4623.874W", alt: "184.1", time: "1234563")
+        
+        updateBMS(capRem: "90", peakTemp: "50", powerConsump: "65", time: "2314773")
 
+        updateWheel(rev: "2394", time: "153248239")
+        
+        updateGPS(lat: "4226.619N", long: "4623.874W", alt: "184.1", time: "123456")
+        
+        updateBMS(capRem: "90", peakTemp: "50", powerConsump: "45", time: "231477")
+    }
+    
+}

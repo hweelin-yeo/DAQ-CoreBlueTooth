@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2F37FE51CD6A8C8A39157506 /* Pods_RR18_BlueToothProj.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E158C39C6F3BAF6A8B0E6A2F /* Pods_RR18_BlueToothProj.framework */; };
+		710670C4223D936D0090CC01 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710670C3223D936D0090CC01 /* String+Extension.swift */; };
 		BA08C5C122188FB30034603F /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA08C5C022188FB30034603F /* DisplayViewController.swift */; };
 		BA08C5C822188FC00034603F /* stop.png in Resources */ = {isa = PBXBuildFile; fileRef = BA08C5C422188FBF0034603F /* stop.png */; };
 		BA08C5C922188FC00034603F /* lap.png in Resources */ = {isa = PBXBuildFile; fileRef = BA08C5C522188FBF0034603F /* lap.png */; };
@@ -19,7 +20,6 @@
 		BA0F1ED9222B1983000E41DC /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F1ED8222B1983000E41DC /* NetworkRouter.swift */; };
 		BA0F1EDD222B2398000E41DC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F1EDC222B2398000E41DC /* NetworkManager.swift */; };
 		BA0F1EDF222B3159000E41DC /* Decodables.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F1EDE222B3159000E41DC /* Decodables.swift */; };
-		BA207FCC21E005F900272ECC /* NetworkRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA207FCB21E005F900272ECC /* NetworkRequestManager.swift */; };
 		BA2608FE21A074FD00963D23 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2608FD21A074FD00963D23 /* DataManager.swift */; };
 		BAAA380B2169586D00E2CC95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAA380A2169586D00E2CC95 /* AppDelegate.swift */; };
 		BAAA380D2169586D00E2CC95 /* DisplayViewController+BlueTooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAA380C2169586D00E2CC95 /* DisplayViewController+BlueTooth.swift */; };
@@ -32,6 +32,8 @@
 
 /* Begin PBXFileReference section */
 		243C13C5DC9DF4A73CC4FB9A /* Pods-RR18_BlueToothProj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RR18_BlueToothProj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RR18_BlueToothProj/Pods-RR18_BlueToothProj.debug.xcconfig"; sourceTree = "<group>"; };
+		710670C3223D936D0090CC01 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Extension.swift"; path = "../../../../../Downloads/String+Extension.swift"; sourceTree = "<group>"; };
+		71253DE12239D7E9009FB280 /* RR18_BlueToothProj.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RR18_BlueToothProj.entitlements; sourceTree = "<group>"; };
 		BA08C5C022188FB30034603F /* DisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayViewController.swift; sourceTree = "<group>"; };
 		BA08C5C422188FBF0034603F /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop.png; sourceTree = "<group>"; };
 		BA08C5C522188FBF0034603F /* lap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lap.png; sourceTree = "<group>"; };
@@ -43,7 +45,6 @@
 		BA0F1ED8222B1983000E41DC /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		BA0F1EDC222B2398000E41DC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		BA0F1EDE222B3159000E41DC /* Decodables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decodables.swift; sourceTree = "<group>"; };
-		BA207FCB21E005F900272ECC /* NetworkRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestManager.swift; sourceTree = "<group>"; };
 		BA2608FD21A074FD00963D23 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		BAAA38072169586D00E2CC95 /* RR18_BlueToothProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RR18_BlueToothProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAAA380A2169586D00E2CC95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +123,7 @@
 		BAAA37FE2169586D00E2CC95 = {
 			isa = PBXGroup;
 			children = (
+				71253DE12239D7E9009FB280 /* RR18_BlueToothProj.entitlements */,
 				BAAA38092169586D00E2CC95 /* RR18_BlueToothProj */,
 				BAAA38082169586D00E2CC95 /* Products */,
 				1B66D61ED49B00E38A340262 /* Pods */,
@@ -156,7 +158,6 @@
 		BAAA38202169646D00E2CC95 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				BA207FCB21E005F900272ECC /* NetworkRequestManager.swift */,
 				BAAA381E2169645C00E2CC95 /* RRBluetoothManager.swift */,
 				BA2608FD21A074FD00963D23 /* DataManager.swift */,
 			);
@@ -175,6 +176,7 @@
 		BAEFCC452218970B004F6F87 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				710670C3223D936D0090CC01 /* String+Extension.swift */,
 				BAEFCC422218969A004F6F87 /* Stopwatch.swift */,
 			);
 			path = Data;
@@ -225,6 +227,29 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 4DXST3Z9LY;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.DataProtection = {
+								enabled = 0;
+							};
+							com.apple.HealthKit = {
+								enabled = 0;
+							};
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+							com.apple.WAC = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -323,8 +348,8 @@
 				BA0F1EDD222B2398000E41DC /* NetworkManager.swift in Sources */,
 				BA0F1ED2222B0F3D000E41DC /* EndPointType.swift in Sources */,
 				BA0F1EDF222B3159000E41DC /* Decodables.swift in Sources */,
-				BA207FCC21E005F900272ECC /* NetworkRequestManager.swift in Sources */,
 				BA2608FE21A074FD00963D23 /* DataManager.swift in Sources */,
+				710670C4223D936D0090CC01 /* String+Extension.swift in Sources */,
 				BA0F1ED5222B13D2000E41DC /* HTTP.swift in Sources */,
 				BAAA380B2169586D00E2CC95 /* AppDelegate.swift in Sources */,
 				BAEFCC432218969A004F6F87 /* Stopwatch.swift in Sources */,
@@ -455,11 +480,14 @@
 			baseConfigurationReference = 243C13C5DC9DF4A73CC4FB9A /* Pods-RR18_BlueToothProj.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4DXST3Z9LY;
 				INFOPLIST_FILE = RR18_BlueToothProj/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appcoda.ResistanceRacing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -469,11 +497,14 @@
 			baseConfigurationReference = D2A4FAE92B9B2C75B071F35D /* Pods-RR18_BlueToothProj.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4DXST3Z9LY;
 				INFOPLIST_FILE = RR18_BlueToothProj/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appcoda.ResistanceRacing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
