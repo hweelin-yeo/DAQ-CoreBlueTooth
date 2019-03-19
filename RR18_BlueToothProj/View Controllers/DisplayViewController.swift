@@ -46,27 +46,22 @@ class DisplayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         setupSpeedComponent()
         setupFuelEffComponent()
         setupStopwatch()
         setupLapButton()
+        setupTapRecognizer()
         
         setupDataManager()
         bluetoothManager.setCentralManagerDelegate(delegate: self)
         dataManager.delegate = self
-        checkIfAlreadyPoweredOn()
         
         dateFormatter.dateStyle = .full
         
+        checkIfAlreadyPoweredOn()
+        
         testNetworkRequestData()
-        
-        
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap(sender:)))
-        
-        // Set the number of required taps=2 for a double click
-        tapGestureRecognizer.numberOfTapsRequired = 2
-        sideTouchView.isUserInteractionEnabled = true
-        sideTouchView.addGestureRecognizer(tapGestureRecognizer)
     }
     
     override func didReceiveMemoryWarning() {
@@ -97,8 +92,34 @@ extension DisplayViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+// MARK: - Data
+extension DisplayViewController {
+    
+    func date() -> String{
+        // get the current date and time
+        let currentDateTime = Date()
+        
+        // initialize the date formatter and set the style
+        let formatter = DateFormatter()
+        formatter.timeStyle = .medium
+        formatter.dateStyle = .long
+        
+        // get the date time String from the date object
+        return formatter.string(from: currentDateTime) // October 8, 2016 at 10:48:53 PM
+    }
+}
+
 // MARK: - UI
 extension DisplayViewController {
+    
+    func setupTapRecognizer() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap(sender:)))
+        
+        // Set the number of required taps=2 for a double click
+        tapGestureRecognizer.numberOfTapsRequired = 2
+        sideTouchView.isUserInteractionEnabled = true
+        sideTouchView.addGestureRecognizer(tapGestureRecognizer)
+    }
     
     func setupSpeedComponent() {
         sNum.bounds.size = CGSize(width: 80, height: 80)
@@ -106,9 +127,6 @@ extension DisplayViewController {
         self.sNum.layer.cornerRadius = sNum.frame.size.height/2
         sNum.clipsToBounds = true
         sNum.textAlignment = .center
-        
-        
-        
     }
     
     func setupFuelEffComponent() {
@@ -154,20 +172,6 @@ extension DisplayViewController {
         self.stopwatch.stopwatchString = "\(minutesString):\(secondsString).\(fractionsString)"
         self.stopwatchLabel.text = self.stopwatch.stopwatchString
     }
-    
-    func date()->String{
-        // get the current date and time
-        let currentDateTime = Date()
-        
-        // initialize the date formatter and set the style
-        let formatter = DateFormatter()
-        formatter.timeStyle = .medium
-        formatter.dateStyle = .long
-        
-        // get the date time String from the date object
-        return formatter.string(from: currentDateTime) // October 8, 2016 at 10:48:53 PM
-    }
-    
     
     @IBAction func startStop(_ sender:AnyObject) {
         
