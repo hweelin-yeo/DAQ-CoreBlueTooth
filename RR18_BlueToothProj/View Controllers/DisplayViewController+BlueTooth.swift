@@ -14,9 +14,11 @@ import CoreBluetooth
 extension DisplayViewController: DataManagerDelegate {
     func updateWheel(rev: String, time: String) {
         // diameter of wheel = 0.5m
-        let circumference = (Double.pi * 0.5) * 3.28084
-        guard let intRev = Int(rev) else { return }
-        let speed = round(circumference * Double(intRev) / 88)
+        let circumference = dataManager.WHEEL_CIRCUM //inches
+        guard let doubleRev = Double(rev) else { return }
+        let convertToMilesRev = doubleRev/(5280*12) * 3600
+        
+        let speed = round(circumference * convertToMilesRev)
         
         sNum.text = String(speed)
         //later update using gps
@@ -29,6 +31,8 @@ extension DisplayViewController: DataManagerDelegate {
     
     func updateBMS(capRem: String, peakTemp: String, powerConsump: String, time: String) {
         networkManager.updateBMS(time: time, batLvl: capRem, batTemp: peakTemp, powerCons: powerConsump)
+        
+        fNum.text = powerConsump
     }
     
     
