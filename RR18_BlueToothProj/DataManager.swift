@@ -11,7 +11,6 @@ import Foundation
 struct RunData {
     var runID: Int?
     var runName: String?
-    
 }
 
 struct LapData{
@@ -26,14 +25,17 @@ protocol DataManagerDelegate: class {
 
 final class DataManager {
 
-    // MARK: Data
-    weak var delegate: DataManagerDelegate?
-    fileprivate var prevBMSData: String?
-    fileprivate var prevGPSData: String?
-    fileprivate var wheelTruncatedTimeStamp: String?
-    fileprivate var unparseable: String = ""
+    // MARK: Constants
     
     final var WHEEL_CIRCUM = 59.4 //inches
+    
+    // MARK: Data
+    
+    weak var delegate: DataManagerDelegate?
+//    fileprivate var prevBMSData: String?
+//    fileprivate var prevGPSData: String?
+//    fileprivate var wheelTruncatedTimeStamp: String?
+    fileprivate var unparseable: String = ""
     
     var runData: RunData = RunData()
     var lapData: LapData = LapData()
@@ -87,13 +89,17 @@ extension DataManager {
     }
 }
 
-// MARK: - Data Parsing
+// MARK: - Test
 extension DataManager {
     
     func testParseClumped() {
         unparseable = "94774g;_95840g;nonew;0_95840b;C100_T50_P90_"
         parseClumped()
     }
+}
+
+// MARK: - Data Parsing
+extension DataManager {
     
     func parseRawData(data: String) {
         unparseable = unparseable + data
@@ -123,20 +129,16 @@ extension DataManager {
     func parseCorrectedData(data: String) {
         // assume it follows format
         print("raw data is \(data)")
-//        print("the number of characters is \(data.count)")
-//        print("printing out the characters")
-//        for char in str { print("the character is \(char)") }
-//        print("stopped printing out the characters")
 
         let dataArray = data.components(separatedBy: ";")
         
-        // assert that data is _;_ else it may be secondary gps string
+        // assert that data is _;_
         guard dataArray.count == 2 else {
-            if (data.first == "g") {
-                guard let GPSData = prevGPSData else { return }
-                prevGPSData = nil
-                parseGPSData(GPSData: GPSData, GPSSecData: String(data.dropFirst()))
-            }
+//            if (data.first == "g") {
+//                guard let GPSData = prevGPSData else { return }
+//                prevGPSData = nil
+//                parseGPSData(GPSData: GPSData, GPSSecData: String(data.dropFirst()))
+//            }
             return
         }
         
@@ -146,19 +148,13 @@ extension DataManager {
         
         switch dataType {
         case "b":
-            prevBMSData = dataValue
-            break
-        case "bt":
-            let timeInterval = String(Int(NSDate().timeIntervalSince1970))
-            guard let bmsData = prevBMSData else { return }
-            prevBMSData = nil
-            parseBMSData(BMSData: bmsData, BMSTime: timeInterval)
+            parseBMSData(BMSData: dataValue)
             break
         case "w":
             parseWheelData(wheelData: dataValue)
             break
-        case "g1":
-            prevGPSData = dataValue
+        case "g":
+            parseGPSData(GPSData: dataValue)
             break
         
         default:
@@ -170,7 +166,7 @@ extension DataManager {
         
     }
     
-    fileprivate func parseBMSData(BMSData: String, BMSTime: String) {
+    fileprivate func parseBMSData(BMSData: String) {
 //        print("parsing BMS Data: \(BMSData)")
         let dataArray = BMSData.components(separatedBy: "_")
         
@@ -218,21 +214,22 @@ extension DataManager {
         
         delegate?.updateWheel(rev: revolution, time: time)
     }
-    fileprivate func parseGPSData(GPSData: String, GPSSecData: String) {
-        let GPSdataArray = GPSData.components(separatedBy: ",")
-        let GPSSecdataArray = GPSSecData.components(separatedBy: "_")
-        
-        guard (GPSdataArray.count == 2 && GPSSecData.count == 2) else {
-            print("GPSData corrupted: \(GPSData)")
-            return
-        }
-        
-        let lat = GPSdataArray[0]
-        let long = GPSSecdataArray[0]
-        let alt = GPSdataArray[1]
-        let time = String(Int(NSDate().timeIntervalSince1970))
-        
-        delegate?.updateGPS(lat: lat, long: long, alt: alt, time: time)
+    fileprivate func parseGPSData(GPSData: String) {
+        // TODO:
+//        let GPSdataArray = GPSData.components(separatedBy: ",")
+//        let GPSSecdataArray = GPSSecData.components(separatedBy: "_")
+//
+//        guard (GPSdataArray.count == 2 && GPSSecData.count == 2) else {
+//            print("GPSData corrupted: \(GPSData)")
+//            return
+//        }
+//
+//        let lat = GPSdataArray[0]
+//        let long = GPSSecdataArray[0]
+//        let alt = GPSdataArray[1]
+//        let time = String(Int(NSDate().timeIntervalSince1970))
+//
+//        delegate?.updateGPS(lat: lat, long: long, alt: alt, time: time)
         
     }
 }
