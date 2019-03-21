@@ -33,6 +33,8 @@ final class DataManager {
     fileprivate var wheelTruncatedTimeStamp: String?
     fileprivate var unparseable: String = ""
     
+    final var WHEEL_CIRCUM = 59.4 //inches
+    
     var runData: RunData = RunData()
     var lapData: LapData = LapData()
     
