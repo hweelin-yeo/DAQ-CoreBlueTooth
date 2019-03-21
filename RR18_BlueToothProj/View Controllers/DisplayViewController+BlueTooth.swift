@@ -31,6 +31,8 @@ extension DisplayViewController: DataManagerDelegate {
     
     func updateBMS(capRem: String, peakTemp: String, powerConsump: String, time: String) {
         networkManager.updateBMS(time: time, batLvl: capRem, batTemp: peakTemp, powerCons: powerConsump)
+        
+        fNum.text = powerConsump
     }
     
     

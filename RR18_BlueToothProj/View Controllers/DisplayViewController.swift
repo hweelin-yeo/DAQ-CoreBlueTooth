@@ -61,7 +61,7 @@ class DisplayViewController: UIViewController {
         
         checkIfAlreadyPoweredOn()
         
-        testNetworkRequestData()
+//        testNetworkRequestData()
     }
     
     override func didReceiveMemoryWarning() {
