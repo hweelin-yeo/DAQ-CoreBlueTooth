@@ -93,7 +93,7 @@ extension DataManager {
 extension DataManager {
     
     func testParseClumped() {
-        unparseable = "94774g;_95840g;nonew;0_95840b;C100_T50_P90_"
+        unparseable = "94774g;4226.6191N04628.9844W184.1_1234567g;none_1234567w;0_95840b;C2134_T50_P90_1234567b;C2134_T50"
         parseClumped()
     }
 }
@@ -109,7 +109,10 @@ extension DataManager {
     func parseClumped() {
         
         let dataArray = unparseable.components(separatedBy: ";")
-        guard (dataArray.count > 3) else { return } // unparseable datastring not long enough
+        guard (dataArray.count >= 3) else { // unparseable datastring not long enough
+            print("unparseable is \(unparseable)")
+            return
+        }
         guard let firstSemiIndex = unparseable.firstIndex(of: ";") else { return }
         let start = firstSemiIndex.encodedOffset - 1
         guard let secondSemiIndex = unparseable.substring(from: firstSemiIndex).dropFirst().firstIndex(of: ";") else { return }
@@ -170,7 +173,7 @@ extension DataManager {
 //        print("parsing BMS Data: \(BMSData)")
         let dataArray = BMSData.components(separatedBy: "_")
         
-        guard (dataArray.count == 3) else {
+        guard (dataArray.count == 4) else {
             print("BMSData corrupted: \(BMSData)")
             return
         }
@@ -195,8 +198,9 @@ extension DataManager {
         let powerConsumption = dataArray[2].dropFirst()
         let time = String(Int(NSDate().timeIntervalSince1970))
         
-        delegate?.updateBMS(capRem: String(capacityRemaining), peakTemp: String(peakTemperature), powerConsump: String(powerConsumption), time: time)
+         print("capacityRemaining is \(capacityRemaining), peakTemperature is \(peakTemperature), powerConsumption is \(powerConsumption)")
         
+        delegate?.updateBMS(capRem: String(capacityRemaining), peakTemp: String(peakTemperature), powerConsump: String(powerConsumption), time: time)
         
     }
     
@@ -215,21 +219,28 @@ extension DataManager {
         delegate?.updateWheel(rev: revolution, time: time)
     }
     fileprivate func parseGPSData(GPSData: String) {
-        // TODO:
-//        let GPSdataArray = GPSData.components(separatedBy: ",")
-//        let GPSSecdataArray = GPSSecData.components(separatedBy: "_")
-//
-//        guard (GPSdataArray.count == 2 && GPSSecData.count == 2) else {
-//            print("GPSData corrupted: \(GPSData)")
-//            return
-//        }
-//
-//        let lat = GPSdataArray[0]
-//        let long = GPSSecdataArray[0]
-//        let alt = GPSdataArray[1]
-//        let time = String(Int(NSDate().timeIntervalSince1970))
-//
-//        delegate?.updateGPS(lat: lat, long: long, alt: alt, time: time)
+
+        let GPSdataArray = GPSData.components(separatedBy: "_")
+        
+        guard (GPSdataArray.count == 2) else {
+            print("GPSData corrupted: \(GPSData)")
+            return
+        }
+        
+        let gps = GPSdataArray[0]
+        guard let NIndex = gps.firstIndex(of: "N")?.encodedOffset else { return }
+        guard let WIndex = gps.firstIndex(of: "W")?.encodedOffset else { return }
+        let afterNIndex = NIndex + 1
+        let afterWIndex = WIndex + 1
+        
+        
+        let lat = gps.substring(to: NIndex)
+        let long = gps[afterNIndex..<afterWIndex]
+        let alt = gps.substring(from: afterWIndex)
+        let time = String(Int(NSDate().timeIntervalSince1970))
+
+        print("lat is \(lat), long is \(long), alt is \(alt)")
+        delegate?.updateGPS(lat: lat, long: long, alt: alt, time: time)
         
     }
 }
